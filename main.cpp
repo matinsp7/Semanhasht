@@ -1,5 +1,9 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include <QQmlContext>
+
+#include "semanhasht.h"
+
 
 int main(int argc, char *argv[])
 {
@@ -13,6 +17,10 @@ int main(int argc, char *argv[])
         &app,
         []() { QCoreApplication::exit(-1); },
         Qt::QueuedConnection);
+
+    auto semanhasht = new Semanhasht();
+    engine.rootContext()->setContextProperty ("semanhasht" , semanhasht);
+
     engine.load(url);
 
     return app.exec();

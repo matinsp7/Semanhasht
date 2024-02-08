@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.16)
 
 project(Semanhasht VERSION 0.1 LANGUAGES CXX)
 
+include_directories(include)
+
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(Qt6 6.4 REQUIRED COMPONENTS Quick)
@@ -9,7 +11,7 @@ find_package(Qt6 6.4 REQUIRED COMPONENTS Quick)
 qt_standard_project_setup()
 
 qt_add_executable(appSemanhasht
-    src/main.cpp
+    main.cpp
 )
 
 qt_add_qml_module(appSemanhasht
@@ -18,6 +20,10 @@ qt_add_qml_module(appSemanhasht
 
     QML_FILES 
     Main.qml
+
+    SOURCES 
+    include/semanhasht.h 
+    src/semanhasht.cpp
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
