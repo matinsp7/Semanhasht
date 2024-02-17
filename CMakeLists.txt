@@ -24,6 +24,10 @@ qt_add_qml_module(appSemanhasht
     SOURCES 
     include/semanhasht.h 
     src/semanhasht.cpp
+
+    include/distance.hpp
+    src/distance.cpp
+
     QML_FILES qml/map.qml
 )
 
