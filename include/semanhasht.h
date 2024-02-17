@@ -10,7 +10,14 @@ class Semanhasht : public QObject
 public:
     explicit Semanhasht(QObject *parent = nullptr);
 
+public slots: 
+    void set_objects(QObject*, int, int);
+
 signals:
+
+private:
+    int v = 59;
+    QObject* objects[59][59];
 };
 
 #endif // SEMANHASHT_H

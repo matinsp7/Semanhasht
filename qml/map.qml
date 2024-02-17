@@ -9,7 +9,7 @@ Item {
     property int c1: -1
     property int c2: -1
 
-    property int v: 58
+    property int v: 59
 
     ListModel {
         id: vertexName
