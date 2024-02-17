@@ -145,13 +145,14 @@ Item {
         ListElement {s: 0; e: 1; color: "green"; sx: 127; sy: 830; px:298; py: 830; strokeStyle: ShapePath.DashLine}
         ListElement {s: 1; e: 2; color: "yellow"; sx: 330; sy: 682; px:330; py: 798; strokeStyle: ShapePath.SolidLine}
         ListElement {s: 1; e: 6; color: "yellow"; sx: 362; sy: 830; px: 398; py: 830; strokeStyle: ShapePath.SolidLine}
-        ListElement {s: 1; e: 9; color: "green"; sx: 330; sy: 875; px: 780; py: 875; strokeStyle: ShapePath.DashLine}
+        ListElement {s: 1; e: 6; color: "green"; sx: 330; sy: 875; px: 430; py: 875; strokeStyle: ShapePath.DashLine}
         ListElement {s: 2; e: 3; color: "yellow"; sx: 330; sy: 522; px: 330; py: 618; strokeStyle: ShapePath.SolidLine}
         ListElement {s: 3; e: 4; color: "yellow"; sx: 330; sy: 362; px:330; py: 458; strokeStyle: ShapePath.SolidLine}
         ListElement {s: 4; e: 5; color: "yellow"; sx: 330; sy: 92; px:330; py: 298; strokeStyle: ShapePath.SolidLine}
         ListElement {s: 4; e: 20; color: "#E91E63"; sx: 127; sy: 330; px: 298; py: 330; strokeStyle: ShapePath.SolidLine}
         ListElement {s: 4; e: 21; color: "#E91E63"; sx: 362; sy: 330; px: 468; py: 330; strokeStyle: ShapePath.SolidLine}
         ListElement {s: 6; e: 7; color: "yellow"; sx: 462; sy: 830; px: 498; py: 830; strokeStyle: ShapePath.SolidLine}
+        ListElement {s: 6; e: 9; color: "green"; sx: 430; sy: 875; px: 780; py: 875; strokeStyle: ShapePath.DashLine}
         ListElement {s: 7; e: 8; color: "yellow"; sx: 562; sy: 830; px: 598; py: 830; strokeStyle: ShapePath.SolidLine}
         ListElement {s: 8; e: 9; color: "yellow"; sx: 662; sy: 830; px: 748; py: 830; strokeStyle: ShapePath.SolidLine}
         ListElement {s: 9; e: 10; color: "yellow"; sx: 812; sy: 830; px: 898; py: 830; strokeStyle: ShapePath.SolidLine}
@@ -266,11 +267,11 @@ Item {
                 MouseArea {
                     anchors.fill: parent
                     onClicked:{
-                        if (c1 == -1){
+                        if (c1 === -1){
                             c1 = model.index
                         }
                         else {
-                            if (c1 === model.index && c2 == -1){
+                            if (c1 === model.index && c2 === -1){
                                 c1 = -1
                             }
                             else if (c2 === model.index){
@@ -435,8 +436,13 @@ Item {
 
 
     Component.onCompleted: {
-        for(var i=0; i<v ; i++){
-            console.log(i)
+        for(var i=0; i<edgeData.count ; i++){
+            semanhasht.set_objects(edgeData.get(i), edgeData.get(i).s, edgeData.get(i).e)
+        }
+        for(var j=0; j<edgeDataP.count ; j++){
+            semanhasht.set_objects(edgeDataP.get(j), edgeDataP.get(j).s, edgeDataP.get(j).e)
+            //console.log(j)
+            //console.log( edgeData.get(j).s)
         }
     }
 
@@ -450,7 +456,7 @@ Item {
         height: 70
         visible: (c1 != -1) && (c2 != -1) ? true : false
         onClicked: {
-            mg.dijkstra(c1, c2);
+            semanhasht.direction(c1, c2)
         }
     }
 }

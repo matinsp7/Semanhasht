@@ -13,7 +13,7 @@ class Distance
 {
 public:
     Distance ();
-    std::vector <int> dijkstra(int, int);
+    std::vector <int> dijkstra(int);
 
 private:
     path matrix [59][59];    

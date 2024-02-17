@@ -1,19 +1,24 @@
 #include "../include/distance.hpp"
 #include <limits.h>
+#include <vector>
 
 
 using namespace std;
 
 Distance::Distance()
 {
-    ifstream reader;
-    reader.open("../files/Matrix.txt", ios_base::in);
-    if (reader.fail()) 
-    {
-    cout << "file read failed." << endl;
+    //ofstream readeri ("Natrix.txt", ios::out);
+    ifstream reader ("../Semanhasht/files/Matrix.txt", ios_base::in);
+    // reader.open("../files/Matrix.txt", ios_base::in);
+    // if (reader.fail())
+    // {
+    // cout << "file read failed." << endl;
+    // }
+    if (!reader){
+        cout << "file read failed." << endl;
     }
 
-    if (reader.is_open())
+    else /*(reader.is_open())*/
     {
 
         string   line;
@@ -33,12 +38,13 @@ Distance::Distance()
                 // erasing the first character and then assign remaining characters to length
                 value.erase(0, 1);
                 matrix[i][j].length = stoi(value);
-                
+
                 j++;
             }
             i++;
         }
     }
+    //cout << matrix[4][5].length;
     reader.close();
 }
 
@@ -60,7 +66,7 @@ int minDistance(int dist[], bool sptSet[])
 // Function that implements Dijkstra's single source
 // shortest path algorithm for a a represented using
 // adjacency matrix representation
-vector <int> Distance::dijkstra(int src, int end)
+vector <int> Distance::dijkstra(int src)
 {
     int V = 59;
     vector <int> ans(V);
@@ -92,19 +98,21 @@ vector <int> Distance::dijkstra(int src, int end)
 
         // Update dist value of the adjacent vertices of the
         // picked vertex.
-        for (int v = 0; v < V; v++)
+        for (int v = 0; v < V; v++){
 
             // Update dist[v] only if is not in sptSet,
             // there is an edge from u to v, and total
             // weight of path from src to v through u is
             // smaller than current value of dist[v]
-            if (!sptSet[v] && matrix[u][v].length
+            if (!sptSet[v] && matrix[u][v].type
                 && dist[u] != INT_MAX
                 && dist[u] + matrix[u][v].length < dist[v])
             {
+                //if (v == 5) cout << "5 " << u << " " << matrix[u][v].length <<  endl;
                 dist[v] = dist[u] + matrix[u][v].length;
                 ans.at(v) = u;
             }
+        }
     }
 
     return ans;
