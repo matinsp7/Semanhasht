@@ -24,6 +24,7 @@ qt_add_qml_module(appSemanhasht
     SOURCES 
     include/semanhasht.h 
     src/semanhasht.cpp
+    QML_FILES qml/map.qml
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
