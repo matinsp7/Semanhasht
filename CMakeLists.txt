@@ -29,6 +29,10 @@ qt_add_qml_module(appSemanhasht
     src/distance.cpp
 
     QML_FILES qml/map.qml
+
+    RESOURCES
+    img/PublicTransportation.jpeg
+    img/loading.gif
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.

@@ -10,6 +10,9 @@ Semanhasht::Semanhasht(QObject *parent)
 void Semanhasht::set_objects(QObject* object, int start, int end){
     objects[start][end] = object;
     objects[end][start] = object;
+    //cout << object->property("ali").toInt() << endl;
+    objects2[start].push_back(object);
+    objects2[end].push_back(object);
 }
 
 

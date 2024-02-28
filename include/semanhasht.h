@@ -21,6 +21,8 @@ signals:
 private:
     //static const int v = 59;
     std::vector <std::vector<QObject*>>objects  = std::vector <std::vector<QObject*>>(59,std::vector<QObject*>(59));
+    std::vector <std::vector<QObject*>>objects2  = std::vector <std::vector<QObject*>>(59);
+
     
     Distance distance;
     std::vector <int> distance_path;

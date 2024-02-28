@@ -7,13 +7,7 @@ using namespace std;
 
 Distance::Distance()
 {
-    //ofstream readeri ("Natrix.txt", ios::out);
-    ifstream reader ("../Semanhasht/files/Matrix.txt", ios_base::in);
-    // reader.open("../files/Matrix.txt", ios_base::in);
-    // if (reader.fail())
-    // {
-    // cout << "file read failed." << endl;
-    // }
+    ifstream reader("../Semanhasht/files/Matrix.txt", ios_base::in);
     if (!reader){
         cout << "file read failed." << endl;
     }
@@ -111,9 +105,13 @@ vector <int> Distance::dijkstra(int src)
                 //if (v == 5) cout << "5 " << u << " " << matrix[u][v].length <<  endl;
                 dist[v] = dist[u] + matrix[u][v].length;
                 ans.at(v) = u;
+                //if (u == 1 && v == 6) cout << "Hi: " << dist[v] << endl;;
             }
         }
     }
 
+    // for (int i=0 ; i<59 ; i++){
+    //     cout << i << " " << ans[i] << endl;
+    // }
     return ans;
 }

@@ -142,321 +142,322 @@ Item {
     ListModel {
         id: edgeData
 
-        ListElement {s: 0; e: 1; color: "green"; sx: 127; sy: 830; px:298; py: 830; strokeStyle: ShapePath.DashLine}
-        ListElement {s: 1; e: 2; color: "yellow"; sx: 330; sy: 682; px:330; py: 798; strokeStyle: ShapePath.SolidLine}
-        ListElement {s: 1; e: 6; color: "yellow"; sx: 362; sy: 830; px: 398; py: 830; strokeStyle: ShapePath.SolidLine}
-        ListElement {s: 1; e: 6; color: "green"; sx: 330; sy: 875; px: 430; py: 875; strokeStyle: ShapePath.DashLine}
-        ListElement {s: 2; e: 3; color: "yellow"; sx: 330; sy: 522; px: 330; py: 618; strokeStyle: ShapePath.SolidLine}
-        ListElement {s: 3; e: 4; color: "yellow"; sx: 330; sy: 362; px:330; py: 458; strokeStyle: ShapePath.SolidLine}
-        ListElement {s: 4; e: 5; color: "yellow"; sx: 330; sy: 92; px:330; py: 298; strokeStyle: ShapePath.SolidLine}
-        ListElement {s: 4; e: 20; color: "#E91E63"; sx: 127; sy: 330; px: 298; py: 330; strokeStyle: ShapePath.SolidLine}
-        ListElement {s: 4; e: 21; color: "#E91E63"; sx: 362; sy: 330; px: 468; py: 330; strokeStyle: ShapePath.SolidLine}
-        ListElement {s: 6; e: 7; color: "yellow"; sx: 462; sy: 830; px: 498; py: 830; strokeStyle: ShapePath.SolidLine}
-        ListElement {s: 6; e: 9; color: "green"; sx: 430; sy: 875; px: 780; py: 875; strokeStyle: ShapePath.DashLine}
-        ListElement {s: 7; e: 8; color: "yellow"; sx: 562; sy: 830; px: 598; py: 830; strokeStyle: ShapePath.SolidLine}
-        ListElement {s: 8; e: 9; color: "yellow"; sx: 662; sy: 830; px: 748; py: 830; strokeStyle: ShapePath.SolidLine}
-        ListElement {s: 9; e: 10; color: "yellow"; sx: 812; sy: 830; px: 898; py: 830; strokeStyle: ShapePath.SolidLine}
-        ListElement {s: 9; e: 11; color: "green"; sx: 780; sy: 875; px: 1050; py: 875; strokeStyle: ShapePath.DashLine}
-        ListElement {s: 10; e: 11; color: "yellow"; sx: 962; sy: 830; px: 1018; py: 830; strokeStyle: ShapePath.SolidLine}
-        ListElement {s: 10; e: 23; color: "blue"; sx: 930; sy: 800; px: 930; py: 711; strokeStyle: ShapePath.SolidLine}
-        ListElement {s: 10; e: 58; color: "blue"; sx: 930; sy: 861; px: 930; py: 1051; strokeStyle: ShapePath.SolidLine}
-        ListElement {s: 12; e: 13; color: "yellow"; sx: 1202; sy: 930; px: 1298; py: 930; strokeStyle: ShapePath.SolidLine}
-        ListElement {s: 12; e: 46; color: "red"; sx: 1170; sy: 900; px: 1170; py: 861; strokeStyle: ShapePath.SolidLine}
-        ListElement {s: 12; e: 57; color: "red"; sx: 1170; sy: 1201; px: 1170; py: 961; strokeStyle: ShapePath.SolidLine}
-        ListElement {s: 14; e: 15; color: "yellow"; sx: 1522; sy: 1030; px: 1598; py: 1030; strokeStyle: ShapePath.SolidLine}
-        ListElement {s: 14; e: 25; color: "#E91E63"; sx: 1490; sy: 1000; px: 1490; py: 800; strokeStyle: ShapePath.SolidLine}
-        ListElement {s: 14; e: 27; color: "#E91E63"; sx: 1490; sy: 1060; px: 1490; py: 1260; strokeStyle: ShapePath.SolidLine}
-        ListElement {s: 15; e: 16; color: "yellow"; sx: 1662; sy: 1030; px: 1698; py: 1030; strokeStyle: ShapePath.SolidLine}
-        ListElement {s: 16; e: 17; color: "yellow"; sx: 1762; sy: 1030; px: 1798; py: 1030; strokeStyle: ShapePath.SolidLine}
-        ListElement {s: 17; e: 18; color: "yellow"; sx: 1862; sy: 1030; px: 1898; py: 1030; strokeStyle: ShapePath.SolidLine}
-        ListElement {s: 18; e: 19; color: "yellow"; sx: 1962; sy: 1030; px: 1998; py: 1030; strokeStyle: ShapePath.SolidLine}
-        ListElement {s: 22; e: 23; color: "#E91E63"; sx: 717; sy: 680; px: 898; py: 680; strokeStyle: ShapePath.SolidLine}
-        ListElement {s: 23; e: 24; color: "#E91E63"; sx: 962; sy: 680; px: 1138; py: 680; strokeStyle: ShapePath.SolidLine}
-        ListElement {s: 23; e: 45; color: "blue"; sx: 930; sy: 650; px: 930; py: 620; strokeStyle: ShapePath.SolidLine}
-        ListElement {s: 24; e: 37; color: "red"; sx: 1170; sy: 649; px: 1170; py: 641; strokeStyle: ShapePath.SolidLine}
-        ListElement {s: 24; e: 46; color: "red"; sx: 1170; sy: 711; px: 1170; py: 799; strokeStyle: ShapePath.SolidLine}
-        ListElement {s: 30; e: 31; color: "blue"; sx: 2000; sy: 380; px: 1790; py: 380; strokeStyle: ShapePath.SolidLine}
-        ListElement {s: 31; e: 32; color: "blue"; sx: 1730; sy: 380; px: 1630; py: 380; strokeStyle: ShapePath.SolidLine}
-        ListElement {s: 32; e: 33; color: "blue"; sx: 1570; sy: 380; px: 1480; py: 380; strokeStyle: ShapePath.SolidLine}
-        ListElement {s: 34; e: 36; color: "blue"; sx: 1280; sy: 530; px: 1201; py: 530; strokeStyle: ShapePath.SolidLine}
-        ListElement {s: 36; e: 37; color: "red"; sx: 1170; sy: 561; px: 1170; py: 579; strokeStyle: ShapePath.SolidLine}
-        ListElement {s: 36; e: 38; color: "red"; sx: 1170; sy: 500; px: 1170; py: 461; strokeStyle: ShapePath.SolidLine}
-        ListElement {s: 36; e: 44; color: "blue"; sx: 1140; sy: 530; px: 1045; py: 530; strokeStyle: ShapePath.SolidLine}
-        ListElement {s: 38; e: 39; color: "red"; sx: 1170; sy: 400; px: 1170; py: 331; strokeStyle: ShapePath.SolidLine}
-        ListElement {s: 39; e: 40; color: "red"; sx: 1170; sy: 270; px: 1170; py: 251; strokeStyle: ShapePath.SolidLine}
-        ListElement {s: 40; e: 41; color: "red"; sx: 1170; sy: 190; px: 1170; py: 171; strokeStyle: ShapePath.SolidLine}
-        ListElement {s: 41; e: 42; color: "red"; sx: 1170; sy: 110; px: 1170; py: 86; strokeStyle: ShapePath.SolidLine}
-        ListElement {s: 48; e: 50; color: "blue"; sx: 930; sy: 1549; px: 930; py: 1511; strokeStyle: ShapePath.SolidLine}
-        ListElement {s: 49; e: 51; color: "red"; sx: 1170; sy: 1549; px: 1170; py: 1511; strokeStyle: ShapePath.SolidLine}
-        ListElement {s: 50; e: 52; color: "blue"; sx: 930; sy: 1449; px: 930; py: 1411; strokeStyle: ShapePath.SolidLine}
-        ListElement {s: 51; e: 53; color: "red"; sx: 1170; sy: 1449; px: 1170; py: 1411; strokeStyle: ShapePath.SolidLine}
-        ListElement {s: 52; e: 55; color: "blue"; sx: 930; sy: 1349; px: 930; py: 1311; strokeStyle: ShapePath.SolidLine}
-        ListElement {s: 52; e: 55; color: "blue"; sx: 930; sy: 1349; px: 930; py: 1311; strokeStyle: ShapePath.SolidLine}
-        ListElement {s: 53; e: 54; color: "red"; sx: 1170; sy: 1349; px: 1170; py: 1261; strokeStyle: ShapePath.SolidLine}
-        ListElement {s: 54; e: 57; color: "red"; sx: 1170; sy: 1199; px: 1170; py: 1161; strokeStyle: ShapePath.SolidLine}
-        ListElement {s: 55; e: 56; color: "blue"; sx: 930; sy: 1249; px: 930; py: 1211; strokeStyle: ShapePath.SolidLine}
-        ListElement {s: 56; e: 58; color: "blue"; sx: 930; sy: 1149; px: 930; py: 1111; strokeStyle: ShapePath.SolidLine}
+        ListElement {s: 0; e: 1; color: "green"; sx: 127; sy: 830; px:298; py: 830; strokeStyle: 2}
+        ListElement {s: 1; e: 2; color: "yellow"; sx: 330; sy: 682; px:330; py: 798; strokeStyle: 1}
+        ListElement {s: 1; e: 6; color: "yellow"; sx: 362; sy: 830; px: 398; py: 830; strokeStyle: 1}
+        ListElement {s: 1; e: 6; color: "green"; sx: 330; sy: 875; px: 430; py: 875; strokeStyle: 2}
+        ListElement {s: 2; e: 3; color: "yellow"; sx: 330; sy: 522; px: 330; py: 618; strokeStyle: 1}
+        ListElement {s: 3; e: 4; color: "yellow"; sx: 330; sy: 362; px:330; py: 458; strokeStyle: 1}
+        ListElement {s: 4; e: 5; color: "yellow"; sx: 330; sy: 92; px:330; py: 298; strokeStyle: 1}
+        ListElement {s: 4; e: 20; color: "#E91E63"; sx: 127; sy: 330; px: 298; py: 330; strokeStyle: 1}
+        ListElement {s: 4; e: 21; color: "#E91E63"; sx: 362; sy: 330; px: 468; py: 330; strokeStyle: 1}
+        ListElement {s: 6; e: 7; color: "yellow"; sx: 462; sy: 830; px: 498; py: 830; strokeStyle: 1}
+        ListElement {s: 6; e: 9; color: "green"; sx: 430; sy: 875; px: 780; py: 875; strokeStyle: 2}
+        ListElement {s: 7; e: 8; color: "yellow"; sx: 562; sy: 830; px: 598; py: 830; strokeStyle: 1}
+        ListElement {s: 8; e: 9; color: "yellow"; sx: 662; sy: 830; px: 748; py: 830; strokeStyle: 1}
+        ListElement {s: 9; e: 10; color: "yellow"; sx: 812; sy: 830; px: 898; py: 830; strokeStyle: 1}
+        ListElement {s: 9; e: 11; color: "green"; sx: 780; sy: 875; px: 1050; py: 875; strokeStyle: 2}
+        ListElement {s: 10; e: 11; color: "yellow"; sx: 962; sy: 830; px: 1018; py: 830; strokeStyle: 1}
+        ListElement {s: 10; e: 23; color: "blue"; sx: 930; sy: 800; px: 930; py: 711; strokeStyle: 1}
+        ListElement {s: 10; e: 58; color: "blue"; sx: 930; sy: 861; px: 930; py: 1051; strokeStyle: 1}
+        ListElement {s: 12; e: 13; color: "yellow"; sx: 1202; sy: 930; px: 1298; py: 930; strokeStyle: 1}
+        ListElement {s: 12; e: 46; color: "red"; sx: 1170; sy: 900; px: 1170; py: 861; strokeStyle: 1}
+        ListElement {s: 12; e: 57; color: "red"; sx: 1170; sy: 1201; px: 1170; py: 961; strokeStyle: 1}
+        ListElement {s: 14; e: 15; color: "yellow"; sx: 1522; sy: 1030; px: 1598; py: 1030; strokeStyle: 1}
+        ListElement {s: 14; e: 25; color: "#E91E63"; sx: 1490; sy: 1000; px: 1490; py: 800; strokeStyle: 1}
+        ListElement {s: 14; e: 27; color: "#E91E63"; sx: 1490; sy: 1060; px: 1490; py: 1260; strokeStyle: 1}
+        ListElement {s: 15; e: 16; color: "yellow"; sx: 1662; sy: 1030; px: 1698; py: 1030; strokeStyle: 1}
+        ListElement {s: 16; e: 17; color: "yellow"; sx: 1762; sy: 1030; px: 1798; py: 1030; strokeStyle: 1}
+        ListElement {s: 17; e: 18; color: "yellow"; sx: 1862; sy: 1030; px: 1898; py: 1030; strokeStyle: 1}
+        ListElement {s: 18; e: 19; color: "yellow"; sx: 1962; sy: 1030; px: 1998; py: 1030; strokeStyle: 1}
+        ListElement {s: 22; e: 23; color: "#E91E63"; sx: 717; sy: 680; px: 898; py: 680; strokeStyle: 1}
+        ListElement {s: 23; e: 24; color: "#E91E63"; sx: 962; sy: 680; px: 1138; py: 680; strokeStyle: 1}
+        ListElement {s: 23; e: 45; color: "blue"; sx: 930; sy: 650; px: 930; py: 620; strokeStyle: 1}
+        ListElement {s: 24; e: 37; color: "red"; sx: 1170; sy: 649; px: 1170; py: 641; strokeStyle: 1}
+        ListElement {s: 24; e: 46; color: "red"; sx: 1170; sy: 711; px: 1170; py: 799; strokeStyle: 1}
+        ListElement {s: 30; e: 31; color: "blue"; sx: 2000; sy: 380; px: 1790; py: 380; strokeStyle: 1}
+        ListElement {s: 31; e: 32; color: "blue"; sx: 1730; sy: 380; px: 1630; py: 380; strokeStyle: 1}
+        ListElement {s: 32; e: 33; color: "blue"; sx: 1570; sy: 380; px: 1480; py: 380; strokeStyle: 1}
+        ListElement {s: 34; e: 36; color: "blue"; sx: 1280; sy: 530; px: 1201; py: 530; strokeStyle: 1}
+        ListElement {s: 36; e: 37; color: "red"; sx: 1170; sy: 561; px: 1170; py: 579; strokeStyle: 1}
+        ListElement {s: 36; e: 38; color: "red"; sx: 1170; sy: 500; px: 1170; py: 461; strokeStyle: 1}
+        ListElement {s: 36; e: 44; color: "blue"; sx: 1140; sy: 530; px: 1045; py: 530; strokeStyle: 1}
+        ListElement {s: 38; e: 39; color: "red"; sx: 1170; sy: 400; px: 1170; py: 331; strokeStyle: 1}
+        ListElement {s: 39; e: 40; color: "red"; sx: 1170; sy: 270; px: 1170; py: 251; strokeStyle: 1}
+        ListElement {s: 40; e: 41; color: "red"; sx: 1170; sy: 190; px: 1170; py: 171; strokeStyle: 1}
+        ListElement {s: 41; e: 42; color: "red"; sx: 1170; sy: 110; px: 1170; py: 86; strokeStyle: 1}
+        ListElement {s: 48; e: 50; color: "blue"; sx: 930; sy: 1549; px: 930; py: 1511; strokeStyle: 1}
+        ListElement {s: 49; e: 51; color: "red"; sx: 1170; sy: 1549; px: 1170; py: 1511; strokeStyle: 1}
+        ListElement {s: 50; e: 52; color: "blue"; sx: 930; sy: 1449; px: 930; py: 1411; strokeStyle: 1}
+        ListElement {s: 51; e: 53; color: "red"; sx: 1170; sy: 1449; px: 1170; py: 1411; strokeStyle: 1}
+        ListElement {s: 52; e: 55; color: "blue"; sx: 930; sy: 1349; px: 930; py: 1311; strokeStyle: 1}
+        ListElement {s: 52; e: 55; color: "blue"; sx: 930; sy: 1349; px: 930; py: 1311; strokeStyle: 1}
+        ListElement {s: 53; e: 54; color: "red"; sx: 1170; sy: 1349; px: 1170; py: 1261; strokeStyle: 1}
+        ListElement {s: 54; e: 57; color: "red"; sx: 1170; sy: 1199; px: 1170; py: 1161; strokeStyle: 1}
+        ListElement {s: 55; e: 56; color: "blue"; sx: 930; sy: 1249; px: 930; py: 1211; strokeStyle: 1}
+        ListElement {s: 56; e: 58; color: "blue"; sx: 930; sy: 1149; px: 930; py: 1111; strokeStyle: 1}
     }
 
     ListModel {
         id: edgeDataP
 
-        ListElement {s: 11; e: 12; color: "yellow"; z:2; x1: 1082; y1: 830; x2: 1102; y2: 830; x3: 1102; y3: 930; x4: 1138; y4: 930; strokeStyle: ShapePath.SolidLine}
-        ListElement {s: 11; e: 12; color: "green"; x1: 1050; y1: 869; x2: 1050; y2: 969; x3: 1170; y3: 969; x4: 1170; y4: 969; strokeStyle: ShapePath.DashLine}
-        ListElement {s: 12; e: 25; color: "green"; x1: 1202; y1: 930; x2: 1260; y2: 930; x3: 1260; y3: 770; x4: 1458; y4: 770; strokeStyle: ShapePath.DashLine}
-        ListElement {s: 13; e: 14; color: "yellow"; x1: 1362; y1: 930; x2: 1412; y2: 930; x3: 1412; y3: 1030; x4: 1458; y4: 1030; strokeStyle: ShapePath.SolidLine}
-        ListElement {s: 15; e: 25; color: "green"; x1: 1522; y1: 770; x2: 1630; y2: 770; x3: 1630; y3: 998; x4: 1630; y4: 1000; strokeStyle: ShapePath.DashLine}
-        ListElement {s: 15; e: 26; color: "green"; x1: 1630; y1: 1060; x2: 1630; y2: 1180; x3: 2000; y3: 1180; x4: 2000; y4: 1180; strokeStyle: ShapePath.DashLine}
-        ListElement {s: 16; e: 27; color: "#FFE082"; x1: 1520; y1: 1290; x2: 1730; y2: 1290; x3: 1730; y3: 1060; x4: 1730; y4: 1060; strokeStyle: ShapePath.DashLine}
-        ListElement {s: 16; e: 30; color: "#FFE082"; x1: 1730; y1: 998; x2: 1730; y2: 680; x3: 2030; y3: 680; x4: 2030; y4: 410; strokeStyle: ShapePath.DashLine}
-        ListElement {s: 21; e: 22; color: "#E91E63"; x1: 532; y1: 330; x2: 685; y2: 330; x3: 685; y3: 648; x4: 685; y4: 648; strokeStyle: ShapePath.SolidLine}
-        ListElement {s: 23; e: 39; color: "black"; x1: 900; y1: 680; x2: 730; y2: 680; x3: 730; y3: 300; x4: 1140; y4: 300; strokeStyle: ShapePath.DashLine}
-        ListElement {s: 23; e: 55; color: "black"; x1: 961; y1: 680; x2: 986; y2: 680; x3: 986; y3: 1280; x4: 961; y4: 1280; strokeStyle: ShapePath.DashLine}
-        ListElement {s: 24; e: 25; color: "#E91E63"; x1: 1202; y1: 680; x2: 1490; y2: 680; x3: 1490; y3: 740; x4: 1490; y4: 740; strokeStyle: ShapePath.SolidLine}
-        ListElement {s: 27; e: 28; color: "#FFE082"; x1: 1460; y1: 1290; x2: 1350; y2: 1290; x3: 1350; y3: 1550; x4: 1350; y4: 1550; strokeStyle: ShapePath.DashLine}
-        ListElement {s: 27; e: 29; color: "#E91E63"; x1: 1490; y1: 1320; x2: 1490; y2: 1580; x3: 2000; y3: 1580; x4: 2000; y4: 1580; strokeStyle: ShapePath.SolidLine}
-        ListElement {s: 30; e: 35; color: "#FFE082"; x1: 2030; y1: 348; x2: 2030; y2: 310; x3: 1562; y3: 310; x4: 1562; y4: 310; strokeStyle: ShapePath.DashLine}
-        ListElement {s: 33; e: 34; color: "blue"; x1: 1420; y1: 380; x2: 1380; y2: 380; x3: 1380; y3: 530; x4: 1340; y4: 530; strokeStyle: ShapePath.SolidLine}
-        ListElement {s: 39; e: 42; color: "black"; x1: 1201; y1: 300; x2: 1221; y2: 300; x3: 1221; y3: 55; x4: 1201; y4: 55; strokeStyle: ShapePath.DashLine}
-        ListElement {s: 42; e: 43; color: "black"; x1: 1140; y1: 55; x2: 960; y2: 55; x3: 960; y3: 140; x4: 960; y4: 140; strokeStyle: ShapePath.DashLine}
-        ListElement {s: 44; e: 45; color: "blue"; x1: 985; y1: 530; x2: 930; y2: 530; x3: 930; y3: 559; x4: 930; y4: 559; strokeStyle: ShapePath.SolidLine}
-        ListElement {s: 47; e: 55; color: "black"; x1: 750; y1: 1550; x2: 750; y2: 1280; x3: 899; y3: 1280; x4: 899; y4: 1280; strokeStyle: ShapePath.DashLine}
+        ListElement {s: 11; e: 12; color: "yellow"; z:2; x1: 1082; y1: 830; x2: 1102; y2: 830; x3: 1102; y3: 930; x4: 1138; y4: 930; strokeStyle: 1; ali:78}
+        ListElement {s: 11; e: 12; color: "green"; x1: 1050; y1: 869; x2: 1050; y2: 969; x3: 1170; y3: 969; x4: 1170; y4: 969; strokeStyle: 2}
+        ListElement {s: 12; e: 25; color: "green"; x1: 1202; y1: 930; x2: 1260; y2: 930; x3: 1260; y3: 770; x4: 1458; y4: 770; strokeStyle: 2}
+        ListElement {s: 13; e: 14; color: "yellow"; x1: 1362; y1: 930; x2: 1412; y2: 930; x3: 1412; y3: 1030; x4: 1458; y4: 1030; strokeStyle: 1}
+        ListElement {s: 15; e: 25; color: "green"; x1: 1522; y1: 770; x2: 1630; y2: 770; x3: 1630; y3: 998; x4: 1630; y4: 1000; strokeStyle: 2}
+        ListElement {s: 15; e: 26; color: "green"; x1: 1630; y1: 1060; x2: 1630; y2: 1180; x3: 2000; y3: 1180; x4: 2000; y4: 1180; strokeStyle: 2}
+        ListElement {s: 16; e: 27; color: "#FFE082"; x1: 1520; y1: 1290; x2: 1730; y2: 1290; x3: 1730; y3: 1060; x4: 1730; y4: 1060; strokeStyle: 2}
+        ListElement {s: 16; e: 30; color: "#FFE082"; x1: 1730; y1: 998; x2: 1730; y2: 680; x3: 2030; y3: 680; x4: 2030; y4: 410; strokeStyle: 2}
+        ListElement {s: 21; e: 22; color: "#E91E63"; x1: 532; y1: 330; x2: 685; y2: 330; x3: 685; y3: 648; x4: 685; y4: 648; strokeStyle: 1}
+        ListElement {s: 23; e: 39; color: "black"; x1: 900; y1: 680; x2: 730; y2: 680; x3: 730; y3: 300; x4: 1140; y4: 300; strokeStyle: 2}
+        ListElement {s: 23; e: 55; color: "black"; x1: 961; y1: 680; x2: 986; y2: 680; x3: 986; y3: 1280; x4: 961; y4: 1280; strokeStyle: 2}
+        ListElement {s: 24; e: 25; color: "#E91E63"; x1: 1202; y1: 680; x2: 1490; y2: 680; x3: 1490; y3: 740; x4: 1490; y4: 740; strokeStyle: 1}
+        ListElement {s: 27; e: 28; color: "#FFE082"; x1: 1460; y1: 1290; x2: 1350; y2: 1290; x3: 1350; y3: 1550; x4: 1350; y4: 1550; strokeStyle: 2}
+        ListElement {s: 27; e: 29; color: "#E91E63"; x1: 1490; y1: 1320; x2: 1490; y2: 1580; x3: 2000; y3: 1580; x4: 2000; y4: 1580; strokeStyle: 1}
+        ListElement {s: 30; e: 35; color: "#FFE082"; x1: 2030; y1: 348; x2: 2030; y2: 310; x3: 1562; y3: 310; x4: 1562; y4: 310; strokeStyle: 2}
+        ListElement {s: 33; e: 34; color: "blue"; x1: 1420; y1: 380; x2: 1380; y2: 380; x3: 1380; y3: 530; x4: 1340; y4: 530; strokeStyle: 1}
+        ListElement {s: 39; e: 42; color: "black"; x1: 1201; y1: 300; x2: 1221; y2: 300; x3: 1221; y3: 55; x4: 1201; y4: 55; strokeStyle: 2}
+        ListElement {s: 42; e: 43; color: "black"; x1: 1140; y1: 55; x2: 960; y2: 55; x3: 960; y3: 140; x4: 960; y4: 140; strokeStyle: 2}
+        ListElement {s: 44; e: 45; color: "blue"; x1: 985; y1: 530; x2: 930; y2: 530; x3: 930; y3: 559; x4: 930; y4: 559; strokeStyle: 1}
+        ListElement {s: 47; e: 55; color: "black"; x1: 750; y1: 1550; x2: 750; y2: 1280; x3: 899; y3: 1280; x4: 899; y4: 1280; strokeStyle: 2}
     }
 
-    ScrollView {
-        width: parent.width
-        height: parent.height
-        contentHeight: parent.height*3
-        contentWidth: parent.width*1.8
-        clip: true
-        ScrollBar.horizontal.policy: ScrollBar.AlwaysOn
-        ScrollBar.horizontal.interactive: true
-        ScrollBar.vertical.policy: ScrollBar.AlwaysOn
-        ScrollBar.vertical.interactive: true
-        //color: "lightgray"
+    StackView {
 
-        Repeater {
-            model: vertexName
+        anchors.fill: parent
+        ScrollView {
+            width: parent.width
+            height: parent.height
+            contentHeight: parent.height*3
+            contentWidth: parent.width*1.8
+            clip: true
+            ScrollBar.horizontal.policy: ScrollBar.AlwaysOn
+            ScrollBar.horizontal.interactive: true
+            ScrollBar.vertical.policy: ScrollBar.AlwaysOn
+            ScrollBar.vertical.interactive: true
+            //color: "lightgray"
 
-            delegate: Label {
-                text: model.text
-                x: model.x
-                y: model.y
-                z: model.z
-                font.bold: true
+            Repeater {
+                model: vertexName
+
+                delegate: Label {
+                    text: model.text
+                    x: model.x
+                    y: model.y
+                    z: model.z
+                    font.bold: true
+                }
             }
-        }
 
-        Repeater {
-            model: graphData
+            Repeater {
+                model: graphData
 
-            delegate: Rectangle {
+                delegate: Rectangle {
+                    width: 60
+                    height: 60
+                    radius: 30
+                    color: (c1 !== model.index && c2 !== model.index ) ? model.vcolor : "purple"
+                    border.color: "black"
+                    x: model.x
+                    y: model.y
+                    z: model.z
+                    Text {
+                        anchors.centerIn: parent
+                        text: model.text
+                        color: model.tcolor
+                    }
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked:{
+                            if (c1 === -1){
+                                c1 = model.index
+                            }
+                            else {
+                                if (c1 === model.index && c2 === -1){
+                                    c1 = -1
+                                }
+                                else if (c2 === model.index){
+                                    c2 = -1
+                                }
+                                else if(c1 !== model.index){
+                                    c2 = model.index
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            Repeater {
+                model: edgeData
+
+                delegate: Shape {
+                    ShapePath {
+                        strokeWidth: 4
+                        strokeColor: model.color
+                        strokeStyle: model.strokeStyle === 1 ? ShapePath.SolidLine : ShapePath.DashLine
+                        startX: model.sx
+                        startY: model.sy
+                        PathLine {
+                            x: model.px
+                            y: model.py
+                        }
+                    }
+                }
+            }
+
+            Repeater {
+                model: edgeDataP
+
+                delegate: Shape {
+                    ShapePath {
+                        strokeWidth: 4
+                        strokeColor: model.color
+                        strokeStyle: model.strokeStyle === 1 ? ShapePath.SolidLine : ShapePath.DashLine
+                        PathPolyline {
+                            path: [
+                                Qt.point(model.x1 , model.y1),
+                                Qt.point(model.x2 , model.y2),
+                                Qt.point(model.x3 , model.y3),
+                                Qt.point(model.x4 , model.y4)
+                            ]
+                        }
+                    }
+                }
+            }
+
+
+            Shape { ShapePath {
+                    strokeWidth: 4
+                    strokeColor: "green";
+                    strokeStyle: ShapePath.DashLine
+                    startX: 330;
+                    startY: 860;
+                    PathLine {
+                        x:330;
+                        y: 869;
+                    }
+                }
+            }
+            Shape { ShapePath {
+                    strokeWidth: 4
+                    strokeColor: "green";
+                    strokeStyle: ShapePath.DashLine
+                    startX: 430;
+                    startY: 860;
+                    PathLine {
+                        x:430;
+                        y: 869;
+                    }
+                }
+            }
+            Shape { ShapePath {
+                    strokeWidth: 4
+                    strokeColor: "green";
+                    strokeStyle: ShapePath.DashLine
+                    startX: 780;
+                    startY: 860;
+                    PathLine {
+                        x: 780;
+                        y: 869;
+                    }
+                }
+            }
+            Shape { ShapePath {
+                    strokeWidth: 4
+                    strokeColor: "green";
+                    strokeStyle: ShapePath.DashLine
+                    startX: 1050;
+                    startY: 860;
+                    PathLine {
+                        x: 1050;
+                        y: 869;
+                    }
+                }
+            }
+            Shape { ShapePath {
+                    strokeWidth: 4
+                    strokeColor: "green";
+                    strokeStyle: ShapePath.DashLine
+                    startX: 1170;
+                    startY: 960;
+                    PathLine {
+                        x: 1170;
+                        y: 969;
+                    }
+                }
+            }
+
+            Rectangle {
+                id: hb1
                 width: 60
                 height: 60
                 radius: 30
-                color: (c1 !== model.index && c2 !== model.index ) ? model.vcolor : "purple"
+                color: "#9E9E9E"
                 border.color: "black"
-                x: model.x
-                y: model.y
-                z: model.z
-                Text {
-                    anchors.centerIn: parent
-                    text: model.text
-                    color: model.tcolor
-                }
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked:{
-                        if (c1 === -1){
-                            c1 = model.index
-                        }
-                        else {
-                            if (c1 === model.index && c2 === -1){
-                                c1 = -1
-                            }
-                            else if (c2 === model.index){
-                                c2 = -1
-                            }
-                            else if(c1 !== model.index){
-                                c2 = model.index
-                            }
-                        }
-                    }
-                }
+                x: 65
+                y: 1550
             }
-        }
 
-        Repeater {
-            model: edgeData
-
-            delegate: Shape {
+            Shape {
+                id: hb1tohb2
                 ShapePath {
                     strokeWidth: 4
-                    strokeColor: model.color
-                    strokeStyle: model.strokeStyle
-                    startX: model.sx
-                    startY: model.sy
+                    strokeColor: "black"
+                    strokeStyle: ShapePath.SolidLine
+                    startX: hb1.x + hb1.radius*2
+                    startY: hb1.y + hb1.radius
                     PathLine {
-                        x: model.px
-                        y: model.py
+                        x: hb2.x
+                        y: hb2.y + hb2.radius
                     }
                 }
             }
-        }
 
-        Repeater {
-            model: edgeDataP
+            Label {
+                text: "Taxi and subway Line"
+                anchors.left: hb1.right
+                anchors.leftMargin: 50
+                anchors.top: hb1.top
+                color: "black"
+                font.bold: true
+            }
 
-            delegate: Shape {
-                ShapePath {
-                    strokeWidth: 4
-                    strokeColor: model.color
-                    strokeStyle: model.strokeStyle
-                    PathPolyline {
-                        path: [
-                            Qt.point(model.x1 , model.y1),
-                            Qt.point(model.x2 , model.y2),
-                            Qt.point(model.x3 , model.y3),
-                            Qt.point(model.x4 , model.y4)
-                        ]
-                    }
-                }
+            Rectangle {
+                id: hb2
+                width: 60
+                height: 60
+                radius: 30
+                color: "#9E9E9E"
+                border.color: "black"
+                x: 365
+                y: 1550
+                z: 10
             }
         }
 
-
-        Shape { ShapePath {
-                strokeWidth: 4
-                strokeColor: "green";
-                strokeStyle: ShapePath.DashLine
-                startX: 330;
-                startY: 860;
-                PathLine {
-                    x:330;
-                    y: 869;
-                }
-            }
-        }
-        Shape { ShapePath {
-                strokeWidth: 4
-                strokeColor: "green";
-                strokeStyle: ShapePath.DashLine
-                startX: 430;
-                startY: 860;
-                PathLine {
-                    x:430;
-                    y: 869;
-                }
-            }
-        }
-        Shape { ShapePath {
-                strokeWidth: 4
-                strokeColor: "green";
-                strokeStyle: ShapePath.DashLine
-                startX: 780;
-                startY: 860;
-                PathLine {
-                    x: 780;
-                    y: 869;
-                }
-            }
-        }
-        Shape { ShapePath {
-                strokeWidth: 4
-                strokeColor: "green";
-                strokeStyle: ShapePath.DashLine
-                startX: 1050;
-                startY: 860;
-                PathLine {
-                    x: 1050;
-                    y: 869;
-                }
-            }
-        }
-        Shape { ShapePath {
-                strokeWidth: 4
-                strokeColor: "green";
-                strokeStyle: ShapePath.DashLine
-                startX: 1170;
-                startY: 960;
-                PathLine {
-                    x: 1170;
-                    y: 969;
-                }
+        Button {
+            text: "Directions"
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: 50
+            Material.background: Material.Blue
+            width: 200
+            height: 70
+            visible: (c1 != -1) && (c2 != -1) ? true : false
+            onClicked: {
+                semanhasht.direction(c1, c2)
             }
         }
 
-        Rectangle {
-            id: hb1
-            width: 60
-            height: 60
-            radius: 30
-            color: "#9E9E9E"
-            border.color: "black"
-            x: 65
-            y: 1550
-        }
-
-        Shape {
-            id: hb1tohb2
-            ShapePath {
-                strokeWidth: 4
-                strokeColor: "black"
-                strokeStyle: ShapePath.SolidLine
-                startX: hb1.x + hb1.radius*2
-                startY: hb1.y + hb1.radius
-                PathLine {
-                    x: hb2.x
-                    y: hb2.y + hb2.radius
-                }
+        Component.onCompleted: {
+            for(var i=0; i<edgeData.count ; i++){
+                semanhasht.set_objects(edgeData.get(i), edgeData.get(i).s, edgeData.get(i).e)
             }
-        }
-
-        Label {
-            text: "Taxi and subway Line"
-            anchors.left: hb1.right
-            anchors.leftMargin: 50
-            anchors.top: hb1.top
-            color: "black"
-            font.bold: true
-        }
-
-        Rectangle {
-            id: hb2
-            width: 60
-            height: 60
-            radius: 30
-            color: "#9E9E9E"
-            border.color: "black"
-            x: 365
-            y: 1550
-            z: 10
-        }
-    }
-
-
-    Component.onCompleted: {
-        for(var i=0; i<edgeData.count ; i++){
-            semanhasht.set_objects(edgeData.get(i), edgeData.get(i).s, edgeData.get(i).e)
-        }
-        for(var j=0; j<edgeDataP.count ; j++){
-            semanhasht.set_objects(edgeDataP.get(j), edgeDataP.get(j).s, edgeDataP.get(j).e)
-            //console.log(j)
-            //console.log( edgeData.get(j).s)
-        }
-    }
-
-    Button {
-        text: "Directions"
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.bottom: parent.bottom
-        anchors.bottomMargin: 50
-        Material.background: Material.Blue
-        width: 200
-        height: 70
-        visible: (c1 != -1) && (c2 != -1) ? true : false
-        onClicked: {
-            semanhasht.direction(c1, c2)
+            for(var j=0; j<edgeDataP.count ; j++){
+                semanhasht.set_objects(edgeDataP.get(j), edgeDataP.get(j).s, edgeDataP.get(j).e)
+            }
         }
     }
 }
