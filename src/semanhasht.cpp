@@ -1,11 +1,48 @@
 #include "semanhasht.h"
 #include <QGuiApplication>
+#include <fstream>
+#include <sstream>
 
 using namespace std;
 
-Semanhasht::Semanhasht(QObject *parent)
+Semanhasht::Semanhasht(QObject *parent) 
     : QObject{parent}
-{}
+{
+    ifstream file("../Semanhasht/files/distanceList.txt");
+    if (file.is_open()){
+        string line;
+        while (getline(file, line)) {
+            istringstream iss(line);
+            string token;
+            vector<path> currentPaths;
+            while (getline(iss, token, '$')) {
+                istringstream pathStream(token);
+                path instancePath;
+                pathStream >> instancePath.start;
+                pathStream.ignore();
+                pathStream >> instancePath.end;
+                pathStream.ignore();
+                pathStream >> instancePath.length;
+                pathStream.ignore();
+                pathStream >> instancePath.tp;
+                if (instancePath.tp/10 == 2){ // It includes both subway and taxi
+                    path instancePath2; //subway
+                    instancePath2.start = instancePath.start;
+                    instancePath2.end = instancePath.end;
+                    instancePath2.length = instancePath.length;
+                    instancePath2.tp = instancePath.tp + 10;
+                    currentPaths.push_back(instancePath2);
+                }
+                currentPaths.push_back(instancePath);
+            }
+            distance_data.push_back(currentPaths);
+        }
+        file.close();
+    }
+    else {
+        cout << "Unable to open the file." << endl;
+    }
+}
 
 void Semanhasht::set_objects(QObject* object, int start, int end){
     objects[start][end] = object;
