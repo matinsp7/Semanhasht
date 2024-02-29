@@ -17,6 +17,12 @@ struct path {
     }
 };
 
+struct comparePairs {
+    bool operator()(const std::pair<int, std::pair <path, int>>& p1, const std::pair<int, std::pair<path, int>>& p2) {
+        return p1.first > p2.first;  // Sort in descending order
+    }
+};
+
 class Semanhasht : public QObject
 {
     Q_OBJECT
