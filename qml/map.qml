@@ -3,12 +3,12 @@ import QtQuick.Window
 import QtQuick.Controls
 import QtQuick.Controls.Material
 import QtQuick.Shapes 1.15
+import QtQuick.Layouts
 
 Item {
 
     property int c1: -1
     property int c2: -1
-
     property int v: 59
 
     ListModel {
@@ -223,6 +223,8 @@ Item {
         ListElement {s: 47; e: 55; color: "black"; x1: 750; y1: 1550; x2: 750; y2: 1280; x3: 899; y3: 1280; x4: 899; y4: 1280; strokeStyle: 2}
     }
 
+
+
     StackView {
 
         anchors.fill: parent
@@ -236,7 +238,6 @@ Item {
             ScrollBar.horizontal.interactive: true
             ScrollBar.vertical.policy: ScrollBar.AlwaysOn
             ScrollBar.vertical.interactive: true
-            //color: "lightgray"
 
             Repeater {
                 model: vertexName
@@ -247,6 +248,7 @@ Item {
                     y: model.y
                     z: model.z
                     font.bold: true
+                    //color: "white"
                 }
             }
 
@@ -284,6 +286,8 @@ Item {
                                     c2 = model.index
                                 }
                             }
+                            start = c1 != -1 ? vertexName.get(c1).text : ""
+                            end = c2 != -1 ? vertexName.get(c2).text : ""
                         }
                     }
                 }
@@ -312,6 +316,8 @@ Item {
 
                 delegate: Shape {
                     ShapePath {
+                        fillColor: "white"//"#212128"//"#212128"
+                        //Material.background: Material.Teal
                         strokeWidth: 4
                         strokeColor: model.color
                         strokeStyle: model.strokeStyle === 1 ? ShapePath.SolidLine : ShapePath.DashLine
@@ -461,3 +467,5 @@ Item {
         }
     }
 }
+// }
+//}

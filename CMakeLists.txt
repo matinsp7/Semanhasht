@@ -33,6 +33,7 @@ qt_add_qml_module(appSemanhasht
     RESOURCES
     img/PublicTransportation.jpeg
     img/loading.gif
+    img/openDrawer.png
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
