@@ -1,7 +1,9 @@
 #ifndef COST_H
 #define COST_H
 
-#include "semanhasht.h"
+#include <vector>
+#include "distance.hpp"
+
 
 class Cost
 {
@@ -13,6 +15,8 @@ private:
     int bus_cost;
     int subway_cost;
     int taxi_cost;
+
+    int costi;
 };
 
 #endif // COST_H

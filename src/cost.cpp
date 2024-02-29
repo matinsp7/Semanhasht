@@ -1,20 +1,22 @@
 #include "cost.h"
 #include <vector>
 #include <queue>
+#include <map>
 using namespace std;
 
 Cost::Cost() {
-    taxi_cost = 2250;
+    bus_cost = 2250;
     subway_cost = 3267;
     taxi_cost = 6000;
+    costi = 0;
 }
 
-vector <vector<pair<path, int>>> Cost::dijkstra(vector<vector<path>> distance_data, int src)
+vector <vector<pair<path, int>>> Cost::dijkstra(vector<vector<path>>distance_data, int src)
 {
     int V = 59;
     vector <vector<pair<path, int>>> ans(V);
 
-    int dist[V]; 
+    //int dist[V]; 
 
     map <pair <int , int> , bool> visited;
 
@@ -31,12 +33,16 @@ vector <vector<pair<path, int>>> Cost::dijkstra(vector<vector<path>> distance_da
             ans[z.top().second.first.end].push_back (make_pair((z.top().second.first) , z.top().second.second));
             visited [make_pair(z.top().second.first.end, z.top().second.first.tp)] = true;
             visited [make_pair(z.top().second.first.start, z.top().second.first.tp)] = true;
+            if (z.top().second.first.end == 0){
+                if (costi == 0){
+                    costi = z.top().first;
+                }
+            }
         }
 
         int asr = distance_data[z.top().second.first.end].size();
         for (int i=0 ; i<asr; i++) {
-            if (visited [make_pair(distance_data[z.top().second.first.end][i].end, distance_data[z.top().second.first.end][i].tp)] == false ){
-                bool inLine = (distance_data[z.top().second.first.end][i].tp != z.top().second.first.tp);
+            bool inLine = (distance_data[z.top().second.first.end][i].tp != z.top().second.first.tp || z.top().second.first.tp/10 == 2);
             int cost;
             switch (distance_data[z.top().second.first.end][i].tp/10){
                 case 1:
@@ -49,11 +55,14 @@ vector <vector<pair<path, int>>> Cost::dijkstra(vector<vector<path>> distance_da
                     cost = subway_cost;
                     break;
             }
+            cost = cost * inLine + z.top().first;
+            if (visited [make_pair(distance_data[z.top().second.first.end][i].end, distance_data[z.top().second.first.end][i].tp)] == false ){
                 z.push(make_pair(cost, make_pair(distance_data[z.top().second.first.end][i] , z.top().second.first.tp)));
-           }
+            }
         }
         
         z.pop();
     }
+    cout << costi;
     return ans;
 }

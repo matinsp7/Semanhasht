@@ -2,6 +2,7 @@
 #include <QGuiApplication>
 #include <fstream>
 #include <sstream>
+#include <iostream>
 
 using namespace std;
 
@@ -42,6 +43,11 @@ Semanhasht::Semanhasht(QObject *parent)
     else {
         cout << "Unable to open the file." << endl;
     }
+
+    // Input Test index number please
+    // const vector<path>& pathVector = distance_data[30];
+    // for (const path& path2 : pathVector) {
+    //     cout << "Start = " << path2.start << ", End = " << path2.end << ", Length = " << path2.length << ", TP = " << path2.tp << endl;}        cout << "-----" << endl;}
 }
 
 void Semanhasht::set_objects(QObject* object, int start, int end){
@@ -57,17 +63,88 @@ void Semanhasht::direction (int src, int end){
     //First calculate the shortest distance
     //distance_path = distance.dijkstra(src);
     //show_path(src, end, 1);
+    cost_path = cost.dijkstra(distance_data, src);
+    show_path (src, end, 2);
+    // pair <path, int> dd = cost_path[end][0];
+    // while (dd.first.start != src) {
+    //     cout << dd.first.start << " " << dd.first.tp << endl;
+    //     for (int i=0 ; i<cost_path[dd.first.start].size() ; i++){
+    //         if (cost_path[dd.first.start][i].first.tp == dd.second){
+    //             dd = cost_path[dd.first.start][i];
+    //             break;
+    //         }
+    //     }
+    // }
+    // cout << dd.first.start << " " << dd.first.tp << endl;
+    
 }
 
 //It shows the path
 //Type variable represents distance(1), cost(2) or time(3)
 void Semanhasht::show_path (int src, int end, int type){
+    
     int tst = end;
+
     if (type == 1){
         while (distance_path[tst] != src){
-            objects[tst][distance_path[tst]]->setProperty("color" , "purple");
+            //objects[tst][distance_path[tst]]->setProperty("color" , "purple");
             tst = distance_path[tst];
         }
-        objects[tst][distance_path[tst]]->setProperty("color" , "purple");
+        //objects[tst][distance_path[tst]]->setProperty("color" , "purple");
+    }
+
+
+    else if (type == 2){
+        pair <path, int> dd = cost_path[end][0];
+
+        while (dd.first.start != src) {
+            for (int i=0 ; i<objects2[dd.first.start].size(); i++){
+                if (dd.first.tp/10 == 1){
+                    if(objects2[dd.first.start][i]->property("strokeStyle").toInt() == 2 &&
+                        (objects2[dd.first.start][i]->property("e").toInt() == dd.first.end ||
+                         objects2[dd.first.start][i]->property("s").toInt() == dd.first.end)){
+                        objects2[dd.first.start][i]-> setProperty("color" , "purple");
+                        objects2[dd.first.start][i]-> setProperty("strokeWidth" , 9);
+                        break;
+                    }
+                }
+                else if (dd.first.tp/10 != 1){
+                    if(objects2[dd.first.start][i]->property("strokeStyle").toInt() == 1 &&
+                        (objects2[dd.first.start][i]->property("e").toInt() == dd.first.end ||
+                         objects2[dd.first.start][i]->property("s").toInt() == dd.first.end)){
+                        objects2[dd.first.start][i]-> setProperty("color" , "purple");
+                        objects2[dd.first.start][i]-> setProperty("strokeWidth" , 9);
+                        break;
+                    }
+                }
+            }
+            for (int i=0 ; i<cost_path[dd.first.start].size() ; i++){
+                if (cost_path[dd.first.start][i].first.tp == dd.second){
+                    dd = cost_path[dd.first.start][i];
+                    break;
+                }
+            }
+        }
+        //first edje
+        for (int i=0 ; i<objects2[dd.first.start].size(); i++){
+            if (dd.first.tp/10 == 1){
+                if(objects2[dd.first.start][i]->property("strokeStyle").toInt() == 2 &&
+                    (objects2[dd.first.start][i]->property("e").toInt() == dd.first.end ||
+                     objects2[dd.first.start][i]->property("s").toInt() == dd.first.end)){
+                    objects2[dd.first.start][i]-> setProperty("color" , "purple");
+                    objects2[dd.first.start][i]-> setProperty("strokeWidth" , 9);
+                    break;
+                }
+            }
+            else if (dd.first.tp/10 != 1){
+                if(objects2[dd.first.start][i]->property("strokeStyle").toInt() == 1 &&
+                    (objects2[dd.first.start][i]->property("e").toInt() == dd.first.end ||
+                     objects2[dd.first.start][i]->property("s").toInt() == dd.first.end)){
+                    objects2[dd.first.start][i]-> setProperty("color" , "purple");
+                    objects2[dd.first.start][i]-> setProperty("strokeWidth" , 9);
+                    break;
+                }
+            }
+        }
     }
 }
