@@ -3,11 +3,11 @@
 #include <iostream>
 #include <sstream>
 
-struct path
-{
-    int length;
-    int type;
-};
+// struct path
+// {
+//     int length;
+//     int type;
+// };
 
 class Distance
 {
@@ -16,5 +16,5 @@ public:
     std::vector <int> dijkstra(int);
 
 private:
-    path matrix [59][59];    
+    //path matrix [59][59];    
 };

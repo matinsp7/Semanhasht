@@ -18,8 +18,8 @@ void Semanhasht::set_objects(QObject* object, int start, int end){
 
 void Semanhasht::direction (int src, int end){
     //First calculate the shortest distance
-    distance_path = distance.dijkstra(src);
-    show_path(src, end, 1);
+    //distance_path = distance.dijkstra(src);
+    //show_path(src, end, 1);
 }
 
 //It shows the path

@@ -3,7 +3,19 @@
 #define SEMANHASHT_H
 
 #include <QObject>
+//#include <vector>
 #include "distance.hpp"
+
+struct path {
+    int start, end, length, tp;
+    path(){}
+    path (int s){
+        start=s ; end=s ; length=0; tp=0;
+    }
+    bool operator<(const std::pair<int , path> & other1) const {
+        return true;
+    }
+};
 
 class Semanhasht : public QObject
 {
@@ -23,59 +35,10 @@ private:
     std::vector <std::vector<QObject*>>objects  = std::vector <std::vector<QObject*>>(59,std::vector<QObject*>(59));
     std::vector <std::vector<QObject*>>objects2  = std::vector <std::vector<QObject*>>(59);
 
-    
+    std::vector<std::vector<path>> distance_data;
+
     Distance distance;
     std::vector <int> distance_path;
 };
 
 #endif // SEMANHASHT_H
-/*
-#include <iostream>
-#include <fstream>
-#include <sstream>
-#include <string>
-#include <vector>
-using namespace std;
-struct Path {
-    int Start, End, Length, TP;
-    Path() : Start(0), End(0), Length(0), TP(0) {}
-    Path(const string& filename) {
-        readAndStoreData(filename);
-    }
-    void readAndStoreData(const string& filename) {
-        ifstream file(filename);
-        vector<vector<Path>> Abass;
-    if (file.is_open()) {
-        string line;
-        while (getline(file, line)) {
-            istringstream iss(line);
-            string token;
-            vector<Path> currentPaths;
-            while (getline(iss, token, '$')) {
-                istringstream pathStream(token);
-                Path path;
-                pathStream >> path.Start;
-                pathStream.ignore();
-                pathStream >> path.End;
-                pathStream.ignore();
-                pathStream >> path.Length;
-                pathStream.ignore();
-                pathStream >> path.TP;
-                currentPaths.push_back(path);
-            }
-            Abass.push_back(currentPaths);
-        }
-        file.close();
-    } else {
-        cout << "Unable to open the file." << endl;
-    }
-// Input Test index number please
-        const vector<Path>& pathVector = Abass[6];
-        for (const Path& path : pathVector) {
-            cout << "Start = " << path.Start << ", End = " << path.End
-                 << ", Length = " << path.Length << ", TP = " << path.TP << endl;
-        }
-        cout << "-----" << endl;
-    }
-};
-*/
