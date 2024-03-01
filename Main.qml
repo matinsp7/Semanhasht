@@ -77,9 +77,9 @@ ApplicationWindow {
                 anchors.rightMargin: 20
                 anchors.verticalCenter: startTF.verticalCenter
                 Rectangle {
-                    width: 10
-                    height: 10
-                    radius: 50
+                    width: 8
+                    height: 8
+                    radius: 4
                     color: "black"
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.top: parent.top
@@ -87,9 +87,9 @@ ApplicationWindow {
                 }
 
                 Rectangle {
-                    width: 10
-                    height: 10
-                    radius: 50
+                    width: 8
+                    height: 8
+                    radius: 4
                     color: "black"
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.top: parent.top
@@ -97,9 +97,9 @@ ApplicationWindow {
                 }
 
                 Rectangle {
-                    width: 10
-                    height: 10
-                    radius: 50
+                    width: 8
+                    height: 8
+                    radius: 4
                     color: "black"
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.top: parent.top
@@ -163,6 +163,55 @@ ApplicationWindow {
                     anchors.fill: parent
                     onClicked: drawer.close()
                 }
+            }
+        }
+        RadioButton {
+            id: currently
+            anchors.left: endTF.left
+            anchors.leftMargin: 20
+            anchors.top: endTF.bottom
+            anchors.topMargin: 30
+            checked: true
+            text: qsTr("Now")
+        }
+        RadioButton {
+            id: anotherTime
+            text: qsTr("In the age of:")
+            anchors.verticalCenter: currently.verticalCenter
+            anchors.left: currently.right
+            anchors.leftMargin: 50
+        }
+        TextField {
+            id: hourTF
+            visible:  anotherTime.checked ? true : false
+            height: 40
+            width: 50
+            anchors.left: currently.left
+            anchors.leftMargin: 50
+            anchors.top: currently.bottom
+            anchors.topMargin: 15
+            Label{
+                text: "hour  :"
+                font.bold: true
+                anchors.right: hourTF.left
+                anchors.rightMargin: 7
+                anchors.verticalCenter: parent.verticalCenter
+            }
+        }
+        TextField {
+            id: minutTF
+            visible:  anotherTime.checked ? true : false
+            height: 40
+            width: 50
+            anchors.left: hourTF.right
+            anchors.leftMargin: 70
+            anchors.verticalCenter: hourTF.verticalCenter
+            Label{
+                text: "minut  :"
+                font.bold: true
+                anchors.right: minutTF.left
+                anchors.rightMargin: 7
+                anchors.verticalCenter: parent.verticalCenter
             }
         }
     }
