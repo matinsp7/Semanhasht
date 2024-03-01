@@ -17,26 +17,152 @@ ApplicationWindow {
 
     property string start: ""
     property string end: ""
+    property int c1: -1
+    property int c2: -1
+    property int them: 1
 
     Drawer {
         id: drawer
         width: root.width / 3.5
         height: root.height
 
-        Column {
-            spacing: 10
+        Rectangle {
+            id: startHintText
             width: parent.width
-            TextField {
-                text: start
-                width: parent.width/1.3
-                anchors.horizontalCenter: parent.horizontalCenter
-                onActiveFocusChanged: console.log("hi")
-                //onTextChanged: console.log ("hi")
+            height: 30
+            visible: startTF.text === "" ? true : false
+            //anchors.left: startTF.left
+            Label {
+                id: st1
+                text: "Type your origin or"
+                anchors.left: parent.left
+                anchors.leftMargin: 60
             }
-            TextField {
-                text: end
-                width: parent.width/1.3
-                anchors.horizontalCenter: parent.horizontalCenter
+            Label {
+                text: "select it on the map."
+                anchors.left: st1.right
+                anchors.leftMargin: 7
+                color: "blue"
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: drawer.close()
+                }
+            }
+        }
+
+        TextField {
+            id: startTF
+            anchors.top: startHintText.bottom
+            anchors.topMargin: 7
+            text: start
+            width: parent.width/1.3
+            anchors.left: parent.left
+            anchors.leftMargin: 60
+            Label {
+                id: originStationError
+                text: "There is no station with this name !"
+                color: "red"
+                visible: c1 == -1 && startTF.text !== "" ? true : false
+                anchors.top: parent.bottom
+                anchors.topMargin: 5
+                anchors.left: parent.left
+            }
+            Rectangle {
+                width: 20
+                height: 20
+                radius: 10
+                //color: "black"
+                border.color: "black"
+                anchors.right: startTF.left
+                anchors.rightMargin: 20
+                anchors.verticalCenter: startTF.verticalCenter
+                Rectangle {
+                    width: 10
+                    height: 10
+                    radius: 50
+                    color: "black"
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.top: parent.top
+                    anchors.topMargin: 25
+                }
+
+                Rectangle {
+                    width: 10
+                    height: 10
+                    radius: 50
+                    color: "black"
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.top: parent.top
+                    anchors.topMargin: 43
+                }
+
+                Rectangle {
+                    width: 10
+                    height: 10
+                    radius: 50
+                    color: "black"
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.top: parent.top
+                    anchors.topMargin: 60
+                }
+            }
+
+            onTextChanged:{
+                c1 = semanhasht.check_station_validation(startTF.text)//console.log ("hi")
+            }
+        }
+        TextField {
+            id: endTF
+            anchors.top: startTF.bottom
+            anchors.topMargin: 28
+            text: end
+            width: parent.width/1.3
+            anchors.left: parent.left
+            anchors.leftMargin: 60
+            Label {
+                id: destinationStationError
+                text: "There is no station with this name !"
+                color: "red"
+                visible: c2 == -1 && endTF.text !== "" ? true : false
+                anchors.top: parent.bottom
+                anchors.topMargin: 5
+                anchors.left: parent.left
+            }
+            Image {
+                id: destinationIMG
+                source: "img/destination.png"
+                anchors.right: parent.left
+                anchors.rightMargin: 7
+                anchors.verticalCenter: parent.verticalCenter
+            }
+            onTextChanged:{
+                c2 = semanhasht.check_station_validation(endTF.text)//console.log ("hi")
+            }
+        }
+
+
+        Rectangle {
+            id: endHintText
+            anchors.top: endTF.bottom
+            anchors.topMargin: 10
+            width: parent.width
+            height: 30
+            visible: endTF.text === "" ? true : false
+            Label {
+                id: et1
+                text: "Type your destination or"
+                anchors.left: parent.left
+                anchors.leftMargin: 40
+            }
+            Label {
+                text: "select it on the map."
+                anchors.left: et1.right
+                anchors.leftMargin: 7
+                color: "blue"
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: drawer.close()
+                }
             }
         }
     }

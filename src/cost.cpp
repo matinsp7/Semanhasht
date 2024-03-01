@@ -33,11 +33,6 @@ vector <vector<pair<path, int>>> Cost::dijkstra(vector<vector<path>>distance_dat
             ans[z.top().second.first.end].push_back (make_pair((z.top().second.first) , z.top().second.second));
             visited [make_pair(z.top().second.first.end, z.top().second.first.tp)] = true;
             visited [make_pair(z.top().second.first.start, z.top().second.first.tp)] = true;
-            if (z.top().second.first.end == 0){
-                if (costi == 0){
-                    costi = z.top().first;
-                }
-            }
         }
         //the number of edges of the desired vertex
         int edg_num = distance_data[z.top().second.first.end].size();

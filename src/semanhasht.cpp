@@ -68,7 +68,14 @@ void Semanhasht::set_map(const QString &station, const int &index){
     string Sstation = station.toStdString();
 
     toLower(Sstation);
-    stationToIndex[Sstation] = index;
+    stationToIndex[Sstation] = index+1;
+}
+
+//هf the station is available, it returns its index, otherwise -1
+int Semanhasht::check_station_validation(const QString& station){
+    string Sstation = station.toStdString();
+    toLower(Sstation);
+    return stationToIndex[Sstation] ? (stationToIndex[Sstation]-1) : -1;
 }
 
 void Semanhasht::direction (int src, int end){

@@ -18,6 +18,7 @@ public slots:
     void direction(int, int);
     void show_path (int, int, int);
     void set_map(const QString&, const int&);
+    int check_station_validation(const QString&);
 
 signals:
 

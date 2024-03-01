@@ -7,8 +7,6 @@ import QtQuick.Layouts
 
 Item {
 
-    property int c1: -1
-    property int c2: -1
     property int v: 59
 
     ListModel {
@@ -274,6 +272,7 @@ Item {
                         onClicked:{
                             if (c1 === -1){
                                 c1 = model.index
+                                drawer.open()
                             }
                             else {
                                 if (c1 === model.index && c2 === -1){
