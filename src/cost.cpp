@@ -39,9 +39,9 @@ vector <vector<pair<path, int>>> Cost::dijkstra(vector<vector<path>>distance_dat
                 }
             }
         }
-
-        int asr = distance_data[z.top().second.first.end].size();
-        for (int i=0 ; i<asr; i++) {
+        //the number of edges of the desired vertex
+        int edg_num = distance_data[z.top().second.first.end].size();
+        for (int i=0 ; i<edg_num; i++) {
             bool inLine = (distance_data[z.top().second.first.end][i].tp != z.top().second.first.tp || z.top().second.first.tp/10 == 2);
             int cost;
             switch (distance_data[z.top().second.first.end][i].tp/10){

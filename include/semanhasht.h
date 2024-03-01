@@ -3,6 +3,7 @@
 #define SEMANHASHT_H
 
 #include <QObject>
+#include <unordered_map>
 #include "cost.h"
 #include "distance.hpp"
 
@@ -16,6 +17,7 @@ public slots:
     void set_objects(QObject*, int, int);
     void direction(int, int);
     void show_path (int, int, int);
+    void set_map(const QString&, const int&);
 
 signals:
 
@@ -23,6 +25,8 @@ private:
     //static const int v = 59;
     std::vector <std::vector<QObject*>>objects  = std::vector <std::vector<QObject*>>(59,std::vector<QObject*>(59));
     std::vector <std::vector<QObject*>>objects2  = std::vector <std::vector<QObject*>>(59);
+
+    std::unordered_map <std::string, int> stationToIndex;
 
     std::vector<std::vector<path>> distance_data;
 

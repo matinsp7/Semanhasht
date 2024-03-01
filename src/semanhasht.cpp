@@ -6,6 +6,12 @@
 
 using namespace std;
 
+void toLower(string &s){
+    for(unsigned i{0}; i < s.length(); i++){
+        s[i] = tolower(s[i]);
+    }
+}
+
 Semanhasht::Semanhasht(QObject *parent) 
     : QObject{parent}
 {
@@ -58,6 +64,12 @@ void Semanhasht::set_objects(QObject* object, int start, int end){
     objects2[end].push_back(object);
 }
 
+void Semanhasht::set_map(const QString &station, const int &index){
+    string Sstation = station.toStdString();
+
+    toLower(Sstation);
+    stationToIndex[Sstation] = index;
+}
 
 void Semanhasht::direction (int src, int end){
     //First calculate the shortest distance

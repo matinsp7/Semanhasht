@@ -30,6 +30,8 @@ ApplicationWindow {
                 text: start
                 width: parent.width/1.3
                 anchors.horizontalCenter: parent.horizontalCenter
+                onActiveFocusChanged: console.log("hi")
+                //onTextChanged: console.log ("hi")
             }
             TextField {
                 text: end

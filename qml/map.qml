@@ -463,6 +463,9 @@ Item {
             for(var j=0; j<edgeDataP.count ; j++){
                 semanhasht.set_objects(edgeDataP.get(j), edgeDataP.get(j).s, edgeDataP.get(j).e)
             }
+            for (var k=0; k<vertexName.count; k++){
+                semanhasht.set_map(vertexName.get(k).text, k);
+            }
         }
     }
 }
