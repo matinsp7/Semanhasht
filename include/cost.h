@@ -15,8 +15,6 @@ private:
     int bus_cost;
     int subway_cost;
     int taxi_cost;
-
-    int costi;
 };
 
 #endif // COST_H

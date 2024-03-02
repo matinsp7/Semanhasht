@@ -5,6 +5,7 @@
 #include <QObject>
 #include <unordered_map>
 #include "cost.h"
+#include "best_time.h"
 #include "distance.hpp"
 
 class Semanhasht : public QObject

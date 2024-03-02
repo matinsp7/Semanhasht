@@ -31,6 +31,9 @@ qt_add_qml_module(appSemanhasht
     include/cost.h
     src/cost.cpp
 
+    include/best_time.h
+    src/best_time.cpp
+
     QML_FILES qml/map.qml
 
     RESOURCES

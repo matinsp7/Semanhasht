@@ -1,17 +1,16 @@
-#include "cost.h"
+#include "best_time.h"
 #include <vector>
-#include <queue>
 #include <map>
+#include <queue>
 using namespace std;
 
-Cost::Cost() {
-    bus_cost = 2250;
-    subway_cost = 3267;
-    taxi_cost = 6000;
+Best_time::Best_time() {
+    bus_time = 4;
+    subway_time = 1;
+    taxi_time = 2;
 }
 
-vector <vector<pair<path, int>>> Cost::dijkstra(vector<vector<path>>distance_data, int src)
-{
+vector <vector<pair<path, int>>> Best_time::dijkstra(vector<vector<path>>distance_data, int src){
     int V = 59;
     vector <vector<pair<path, int>>> ans(V);
 
@@ -36,22 +35,34 @@ vector <vector<pair<path, int>>> Cost::dijkstra(vector<vector<path>>distance_dat
         //the number of edges of the desired vertex
         int edg_num = distance_data[z.top().second.first.end].size();
         for (int i=0 ; i<edg_num; i++) {
-            bool inLine = (distance_data[z.top().second.first.end][i].tp != z.top().second.first.tp || z.top().second.first.tp/10 == 2);
-            int cost;
+            int cost_time;
             switch (distance_data[z.top().second.first.end][i].tp/10){
                 case 1:
-                    cost = bus_cost;
+                    cost_time = distance_data[z.top().second.first.end][i].length * bus_time;
                     break;
                 case 2:
-                    cost = distance_data[z.top().second.first.end][i].length * taxi_cost;
+                    cost_time = distance_data[z.top().second.first.end][i].length * taxi_time;
                     break;
                 case 3:
-                    cost = subway_cost;
+                    cost_time = distance_data[z.top().second.first.end][i].length * subway_time;
                     break;
             }
-            cost = cost * inLine + z.top().first;
+            if (distance_data[z.top().second.first.end][i].tp != z.top().second.first.tp){
+                switch (distance_data[z.top().second.first.end][i].tp/10){
+                    case 1:
+                        cost_time += bus_dilay;
+                        break;
+                    case 2:
+                        cost_time += taxi_dilay;
+                        break;
+                    case 3:
+                        cost_time += subway_dilay;
+                        break;
+                }
+            }
+            cost_time += z.top().first;
             if (visited [make_pair(distance_data[z.top().second.first.end][i].end, distance_data[z.top().second.first.end][i].tp)] == false ){
-                z.push(make_pair(cost, make_pair(distance_data[z.top().second.first.end][i] , z.top().second.first.tp)));
+                z.push(make_pair(cost_time, make_pair(distance_data[z.top().second.first.end][i] , z.top().second.first.tp)));
             }
         }
         
