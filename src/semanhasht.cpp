@@ -57,11 +57,13 @@ Semanhasht::Semanhasht(QObject *parent)
 }
 
 void Semanhasht::set_objects(QObject* object, int start, int end){
+    static int a=0;
     objects[start][end] = object;
     objects[end][start] = object;
     //cout << object->property("ali").toInt() << endl;
     objects2[start].push_back(object);
     objects2[end].push_back(object);
+    //Q_OBJECT ss = &object;
 }
 
 void Semanhasht::set_map(const QString &station, const int &index){
@@ -83,7 +85,8 @@ void Semanhasht::direction (int src, int end){
     //distance_path = distance.dijkstra(src);
     //show_path(src, end, 1);
     cost_path = cost.dijkstra(distance_data, src);
-    show_path (src, end, 2);
+    time_path = best_time.dijkstra(distance_data, src);
+    show_path (src, end, 3);
     // pair <path, int> dd = cost_path[end][0];
     // while (dd.first.start != src) {
     //     cout << dd.first.start << " " << dd.first.tp << endl;
@@ -114,7 +117,67 @@ void Semanhasht::show_path (int src, int end, int type){
 
 
     else if (type == 2){
+        //cout << "Now " << 2 << endl;
         pair <path, int> dd = cost_path[end][0];
+
+        while (dd.first.start != src) {
+            for (int i=0 ; i<objects2[dd.first.start].size(); i++){
+                if (dd.first.tp/10 == 1){
+                    if(objects2[dd.first.start][i]->property("strokeStyle").toInt() == 2 &&
+                        (objects2[dd.first.start][i]->property("e").toInt() == dd.first.end ||
+                         objects2[dd.first.start][i]->property("s").toInt() == dd.first.end)){
+                        objects2[dd.first.start][i]-> setProperty("color" , "purple");
+                        objects2[dd.first.start][i]-> setProperty("strokeWidth" , 9);
+                        cout << "Now " << 2 << endl;
+                        break;
+                    }
+                }
+                else if (dd.first.tp/10 != 1){
+                    if(objects2[dd.first.start][i]->property("strokeStyle").toInt() == 1 &&
+                        (objects2[dd.first.start][i]->property("e").toInt() == dd.first.end ||
+                         objects2[dd.first.start][i]->property("s").toInt() == dd.first.end)){
+                        objects2[dd.first.start][i]-> setProperty("color" , "purple");
+                        objects2[dd.first.start][i]-> setProperty("strokeWidth" , 9);
+                        cout << "Now " << 2 << endl;
+                        break;
+                    }
+                }
+            }
+            for (int i=0 ; i<cost_path[dd.first.start].size() ; i++){
+                if (cost_path[dd.first.start][i].first.tp == dd.second){
+                    dd = cost_path[dd.first.start][i];
+                    break;
+                }
+            }
+        }
+        //first edje
+        for (int i=0 ; i<objects2[dd.first.start].size(); i++){
+            if (dd.first.tp/10 == 1){
+                if(objects2[dd.first.start][i]->property("strokeStyle").toInt() == 2 &&
+                    (objects2[dd.first.start][i]->property("e").toInt() == dd.first.end ||
+                     objects2[dd.first.start][i]->property("s").toInt() == dd.first.end)){
+                    objects2[dd.first.start][i]-> setProperty("color" , "purple");
+                    objects2[dd.first.start][i]-> setProperty("strokeWidth" , 9);
+                    cout << "Now " << 2 << endl;
+                    break;
+                }
+            }
+            else if (dd.first.tp/10 != 1){
+                if(objects2[dd.first.start][i]->property("strokeStyle").toInt() == 1 &&
+                    (objects2[dd.first.start][i]->property("e").toInt() == dd.first.end ||
+                     objects2[dd.first.start][i]->property("s").toInt() == dd.first.end)){
+                    objects2[dd.first.start][i]-> setProperty("color" , "purple");
+                    objects2[dd.first.start][i]-> setProperty("strokeWidth" , 9);
+                    cout << "Now " << 2 << endl;
+                    break;
+                }
+            }
+        }
+    }
+
+    else if (type == 3){
+
+        pair <path, int> dd = time_path[end][0];
 
         while (dd.first.start != src) {
             for (int i=0 ; i<objects2[dd.first.start].size(); i++){
@@ -137,9 +200,9 @@ void Semanhasht::show_path (int src, int end, int type){
                     }
                 }
             }
-            for (int i=0 ; i<cost_path[dd.first.start].size() ; i++){
+            for (int i=0 ; i<time_path[dd.first.start].size() ; i++){
                 if (cost_path[dd.first.start][i].first.tp == dd.second){
-                    dd = cost_path[dd.first.start][i];
+                    dd = time_path[dd.first.start][i];
                     break;
                 }
             }

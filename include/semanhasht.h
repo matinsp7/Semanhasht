@@ -37,6 +37,10 @@ private:
 
     Cost cost;
     std::vector <std::vector<std::pair<path, int>>> cost_path;
+
+    Best_time best_time;
+    std::vector <std::vector<std::pair<path, int>>> time_path;
+
 };
 
 #endif // SEMANHASHT_H

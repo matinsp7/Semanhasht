@@ -218,7 +218,7 @@ ApplicationWindow {
 
 
     header: ToolBar{
-        //Material.background: Material.Pink//"Black"//Material.BlueGrey
+        Material.background: Material.Pink//"Black"//Material.BlueGrey
         height: 50
 
         ToolButton {

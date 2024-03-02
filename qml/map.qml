@@ -442,6 +442,7 @@ Item {
         }
 
         Button {
+            id: directionBt
             text: "Directions"
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.bottom: parent.bottom
@@ -452,12 +453,76 @@ Item {
             visible: (c1 != -1) && (c2 != -1) ? true : false
             onClicked: {
                 semanhasht.direction(c1, c2)
+                directionBt.visible = false
+                pathSel.visible = true
             }
         }
+
+        // Rectangle {
+        //     id : pathSel
+        //     width: 260
+        //     height: 50
+        //     radius: 5
+        //     color: "#E91E63"//"#212128"
+        //     visible: false
+        //     anchors.bottom: parent.bottom
+        //     anchors.right: parent.right
+        //     anchors.bottomMargin: 30
+        //     anchors.rightMargin: 30
+        //     RadioButton {
+        //         id: timePath
+        //         anchors.left: parent.left
+        //         anchors.leftMargin: 5
+        //         checked: true
+        //         text: qsTr("time")
+        //         contentItem: Text {
+        //             text: timePath.text
+        //             color: "white"
+        //             leftPadding: timePath.indicator.width + timePath.spacing
+        //             verticalAlignment: Text.AlignVCenter
+        //         }
+        //         onClicked: semanhasht.show_path(c1, c2, 3)
+        //     }
+        //     RadioButton {
+        //         id: costPath
+        //         anchors.left: timePath.right
+        //         anchors.leftMargin: 8
+        //         text: qsTr("cost")
+        //         contentItem: Text {
+        //             text: costPath.text
+        //             color: "white"
+        //             leftPadding: costPath.indicator.width + costPath.spacing
+        //             verticalAlignment: Text.AlignVCenter
+        //         }
+        //         onClicked:{
+        //             //mainLoad.sourceComponent = null
+        //             //  mainLoad.active = false
+        //             // mainLoad.source = "qrc:/Semanhasht/qml/map.qml"
+        //             // mainLoad.active = true
+        //             // semanhasht.show_path(c1, c2, 2)
+        //             // semanhasht.show_path(c1, c2, 2)
+        //             // semanhasht.show_path(c1, c2, 3)
+        //         }
+        //     }
+        //     RadioButton {
+        //         id: disPath
+        //         anchors.left: costPath.right
+        //         //anchors.leftMargin: 100
+        //         text: qsTr("distance")
+        //         contentItem: Text {
+        //             text: disPath.text
+        //             color: "white"
+        //             leftPadding: disPath.indicator.width + disPath.spacing
+        //             verticalAlignment: Text.AlignVCenter
+        //         }
+        //         //onClicked: semanhasht.show_path(c1, c2, 1)
+        //     }
+        // }
 
         Component.onCompleted: {
             for(var i=0; i<edgeData.count ; i++){
                 semanhasht.set_objects(edgeData.get(i), edgeData.get(i).s, edgeData.get(i).e)
+                //console.log(i)
             }
             for(var j=0; j<edgeDataP.count ; j++){
                 semanhasht.set_objects(edgeDataP.get(j), edgeDataP.get(j).s, edgeDataP.get(j).e)
