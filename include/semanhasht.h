@@ -8,6 +8,7 @@
 #include "best_time.h"
 #include "distance.hpp"
 #include "resetpath.h"
+#include <stack>
 
 class Semanhasht : public QObject
 {
@@ -21,6 +22,7 @@ public slots:
     void show_path (int, int, int);
     void set_map(const QString&, const int&);
     int check_station_validation(const QString&);
+    QString print_path();
 
 signals:
 
@@ -41,6 +43,8 @@ private:
 
     Best_time best_time;
     std::vector <std::vector<std::pair<path, int>>> time_path;
+
+    std::stack<path> print_time_path;
 
     ResetPath RP;
 

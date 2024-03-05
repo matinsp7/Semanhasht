@@ -214,6 +214,23 @@ ApplicationWindow {
                 anchors.verticalCenter: parent.verticalCenter
             }
         }
+        Rectangle {
+            id: mas
+            visible: false
+            anchors.top: minutTF.bottom
+            anchors.topMargin: 10
+            width: parent.width
+            height: 80
+            color: "blue"
+            Label {
+                id : masir
+                text: semanhasht.print_path()
+                color: "white"
+                font.bold: true
+                font.pixelSize: 20
+                anchors.centerIn: parent
+            }
+        }
     }
 
 

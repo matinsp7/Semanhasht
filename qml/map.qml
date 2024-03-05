@@ -455,6 +455,8 @@ Item {
                 semanhasht.direction(c1, c2)
                 directionBt.visible = false
                 pathSel.visible = true
+                mas.visible = true
+                masir.text = semanhasht.print_path()
             }
         }
 
