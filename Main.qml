@@ -176,10 +176,10 @@ ApplicationWindow {
         }
         RadioButton {
             id: anotherTime
-            text: qsTr("In the age of:")
+            text: qsTr("In another time:")
             anchors.verticalCenter: currently.verticalCenter
             anchors.left: currently.right
-            anchors.leftMargin: 50
+            anchors.leftMargin: 30
         }
         TextField {
             id: hourTF
@@ -207,7 +207,7 @@ ApplicationWindow {
             anchors.leftMargin: 70
             anchors.verticalCenter: hourTF.verticalCenter
             Label{
-                text: "minut  :"
+                text: "minute  :"
                 font.bold: true
                 anchors.right: minutTF.left
                 anchors.rightMargin: 7
@@ -218,7 +218,7 @@ ApplicationWindow {
 
 
     header: ToolBar{
-        Material.background: Material.Pink//"Black"//Material.BlueGrey
+        //Material.background: Material.Pink//"Black"//Material.BlueGrey
         height: 50
 
         ToolButton {
@@ -245,43 +245,43 @@ ApplicationWindow {
     }
 
 
-    // Image {
-    //     id: entrancePic
-    //     source: "img/PublicTransportation.jpeg"
-    //     width: parent.width
-    //     height: parent.height
-    //     z: 50
+    Image {
+        id: entrancePic
+        source: "img/PublicTransportation.jpeg"
+        width: parent.width
+        height: parent.height
+        z: 50
 
-    //     Label {
-    //         text: "Semanhasht"
-    //         anchors.top: parent.top
-    //         anchors.topMargin: 40
-    //         anchors.horizontalCenter: parent.horizontalCenter
-    //         color: "white"
-    //         font.italic: true
-    //         font.bold: true
-    //         font.pixelSize: 40
-    //     }
+        Label {
+            text: "Semanhasht"
+            anchors.top: parent.top
+            anchors.topMargin: 40
+            anchors.horizontalCenter: parent.horizontalCenter
+            color: "white"
+            font.italic: true
+            font.bold: true
+            font.pixelSize: 40
+        }
 
-    //     AnimatedImage {
-    //         source: "img/loading.gif"
-    //         anchors.horizontalCenter: parent.horizontalCenter
-    //         anchors.bottom: parent.bottom
-    //         anchors.bottomMargin: 70
-    //         width: 80
-    //         height: 80
-    //     }
+        AnimatedImage {
+            source: "img/loading.gif"
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: 70
+            width: 80
+            height: 80
+        }
 
-    //     Timer {
-    //         id: timer
-    //         interval: 2500
-    //         running: true
-    //         repeat: false
-    //         onTriggered: {
-    //             ss.visible = false
-    //         }
-    //     }
-    // }
+        Timer {
+            id: timer
+            interval: 2500
+            running: true
+            repeat: false
+            onTriggered: {
+                entrancePic.visible = false
+            }
+        }
+    }
 
     Component.onCompleted: {
         mainLoad.source = "qrc:/Semanhasht/qml/map.qml"

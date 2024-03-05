@@ -458,66 +458,62 @@ Item {
             }
         }
 
-        // Rectangle {
-        //     id : pathSel
-        //     width: 260
-        //     height: 50
-        //     radius: 5
-        //     color: "#E91E63"//"#212128"
-        //     visible: false
-        //     anchors.bottom: parent.bottom
-        //     anchors.right: parent.right
-        //     anchors.bottomMargin: 30
-        //     anchors.rightMargin: 30
-        //     RadioButton {
-        //         id: timePath
-        //         anchors.left: parent.left
-        //         anchors.leftMargin: 5
-        //         checked: true
-        //         text: qsTr("time")
-        //         contentItem: Text {
-        //             text: timePath.text
-        //             color: "white"
-        //             leftPadding: timePath.indicator.width + timePath.spacing
-        //             verticalAlignment: Text.AlignVCenter
-        //         }
-        //         onClicked: semanhasht.show_path(c1, c2, 3)
-        //     }
-        //     RadioButton {
-        //         id: costPath
-        //         anchors.left: timePath.right
-        //         anchors.leftMargin: 8
-        //         text: qsTr("cost")
-        //         contentItem: Text {
-        //             text: costPath.text
-        //             color: "white"
-        //             leftPadding: costPath.indicator.width + costPath.spacing
-        //             verticalAlignment: Text.AlignVCenter
-        //         }
-        //         onClicked:{
-        //             //mainLoad.sourceComponent = null
-        //             //  mainLoad.active = false
-        //             // mainLoad.source = "qrc:/Semanhasht/qml/map.qml"
-        //             // mainLoad.active = true
-        //             // semanhasht.show_path(c1, c2, 2)
-        //             // semanhasht.show_path(c1, c2, 2)
-        //             // semanhasht.show_path(c1, c2, 3)
-        //         }
-        //     }
-        //     RadioButton {
-        //         id: disPath
-        //         anchors.left: costPath.right
-        //         //anchors.leftMargin: 100
-        //         text: qsTr("distance")
-        //         contentItem: Text {
-        //             text: disPath.text
-        //             color: "white"
-        //             leftPadding: disPath.indicator.width + disPath.spacing
-        //             verticalAlignment: Text.AlignVCenter
-        //         }
-        //         //onClicked: semanhasht.show_path(c1, c2, 1)
-        //     }
-        // }
+        Rectangle {
+            id : pathSel
+            width: 270
+            height: 50
+            radius: 5
+            color: "#00BCD4"//"#E91E63"//"#212128"
+            visible: false
+            anchors.bottom: parent.bottom
+            anchors.right: parent.right
+            anchors.bottomMargin: 30
+            anchors.rightMargin: 30
+            RadioButton {
+                id: timePath
+                anchors.left: parent.left
+                anchors.leftMargin: 5
+                checked: true
+                text: qsTr("time")
+                contentItem: Text {
+                    text: timePath.text
+                    color: "white"
+                    leftPadding: timePath.indicator.width + timePath.spacing
+                    verticalAlignment: Text.AlignVCenter
+                    font.bold: true
+                }
+                onClicked: semanhasht.show_path(c1, c2, 3)
+            }
+            RadioButton {
+                id: costPath
+                anchors.left: timePath.right
+                anchors.leftMargin: 8
+                text: qsTr("cost")
+                contentItem: Text {
+                    text: costPath.text
+                    color: "white"
+                    leftPadding: costPath.indicator.width + costPath.spacing
+                    verticalAlignment: Text.AlignVCenter
+                    font.bold: true
+                }
+                onClicked:{
+                    semanhasht.show_path(c1, c2, 2)
+                }
+            }
+            RadioButton {
+                id: disPath
+                anchors.left: costPath.right
+                //anchors.leftMargin: 100
+                text: qsTr("distance")
+                contentItem: Text {
+                    text: disPath.text
+                    color: "white"
+                    leftPadding: disPath.indicator.width + disPath.spacing
+                    verticalAlignment: Text.AlignVCenter
+                    font.bold: true
+                }
+            }
+        }
 
         Component.onCompleted: {
             for(var i=0; i<edgeData.count ; i++){
@@ -533,5 +529,3 @@ Item {
         }
     }
 }
-// }
-//}

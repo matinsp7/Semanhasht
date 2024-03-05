@@ -7,6 +7,7 @@
 #include "cost.h"
 #include "best_time.h"
 #include "distance.hpp"
+#include "resetpath.h"
 
 class Semanhasht : public QObject
 {
@@ -40,6 +41,8 @@ private:
 
     Best_time best_time;
     std::vector <std::vector<std::pair<path, int>>> time_path;
+
+    ResetPath RP;
 
 };
 

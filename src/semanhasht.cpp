@@ -3,6 +3,7 @@
 #include <fstream>
 #include <sstream>
 #include <iostream>
+#include <QString>
 
 using namespace std;
 
@@ -117,7 +118,7 @@ void Semanhasht::show_path (int src, int end, int type){
 
 
     else if (type == 2){
-        //cout << "Now " << 2 << endl;
+        RP.reset();
         pair <path, int> dd = cost_path[end][0];
 
         while (dd.first.start != src) {
@@ -126,9 +127,9 @@ void Semanhasht::show_path (int src, int end, int type){
                     if(objects2[dd.first.start][i]->property("strokeStyle").toInt() == 2 &&
                         (objects2[dd.first.start][i]->property("e").toInt() == dd.first.end ||
                          objects2[dd.first.start][i]->property("s").toInt() == dd.first.end)){
+                        RP.set_edges(objects2[dd.first.start][i], objects2[dd.first.start][i]->property("color"),objects2[dd.first.start][i]->property("strokeWidth"));
                         objects2[dd.first.start][i]-> setProperty("color" , "purple");
                         objects2[dd.first.start][i]-> setProperty("strokeWidth" , 9);
-                        cout << "Now " << 2 << endl;
                         break;
                     }
                 }
@@ -136,9 +137,9 @@ void Semanhasht::show_path (int src, int end, int type){
                     if(objects2[dd.first.start][i]->property("strokeStyle").toInt() == 1 &&
                         (objects2[dd.first.start][i]->property("e").toInt() == dd.first.end ||
                          objects2[dd.first.start][i]->property("s").toInt() == dd.first.end)){
+                        RP.set_edges(objects2[dd.first.start][i], objects2[dd.first.start][i]->property("color"),objects2[dd.first.start][i]->property("strokeWidth"));
                         objects2[dd.first.start][i]-> setProperty("color" , "purple");
                         objects2[dd.first.start][i]-> setProperty("strokeWidth" , 9);
-                        cout << "Now " << 2 << endl;
                         break;
                     }
                 }
@@ -156,9 +157,9 @@ void Semanhasht::show_path (int src, int end, int type){
                 if(objects2[dd.first.start][i]->property("strokeStyle").toInt() == 2 &&
                     (objects2[dd.first.start][i]->property("e").toInt() == dd.first.end ||
                      objects2[dd.first.start][i]->property("s").toInt() == dd.first.end)){
+                    RP.set_edges(objects2[dd.first.start][i], objects2[dd.first.start][i]->property("color"),objects2[dd.first.start][i]->property("strokeWidth"));
                     objects2[dd.first.start][i]-> setProperty("color" , "purple");
                     objects2[dd.first.start][i]-> setProperty("strokeWidth" , 9);
-                    cout << "Now " << 2 << endl;
                     break;
                 }
             }
@@ -166,9 +167,9 @@ void Semanhasht::show_path (int src, int end, int type){
                 if(objects2[dd.first.start][i]->property("strokeStyle").toInt() == 1 &&
                     (objects2[dd.first.start][i]->property("e").toInt() == dd.first.end ||
                      objects2[dd.first.start][i]->property("s").toInt() == dd.first.end)){
+                    RP.set_edges(objects2[dd.first.start][i], objects2[dd.first.start][i]->property("color"),objects2[dd.first.start][i]->property("strokeWidth"));
                     objects2[dd.first.start][i]-> setProperty("color" , "purple");
                     objects2[dd.first.start][i]-> setProperty("strokeWidth" , 9);
-                    cout << "Now " << 2 << endl;
                     break;
                 }
             }
@@ -176,7 +177,7 @@ void Semanhasht::show_path (int src, int end, int type){
     }
 
     else if (type == 3){
-
+        RP.reset();
         pair <path, int> dd = time_path[end][0];
 
         while (dd.first.start != src) {
@@ -185,6 +186,7 @@ void Semanhasht::show_path (int src, int end, int type){
                     if(objects2[dd.first.start][i]->property("strokeStyle").toInt() == 2 &&
                         (objects2[dd.first.start][i]->property("e").toInt() == dd.first.end ||
                          objects2[dd.first.start][i]->property("s").toInt() == dd.first.end)){
+                        RP.set_edges(objects2[dd.first.start][i], objects2[dd.first.start][i]->property("color"),objects2[dd.first.start][i]->property("strokeWidth"));
                         objects2[dd.first.start][i]-> setProperty("color" , "purple");
                         objects2[dd.first.start][i]-> setProperty("strokeWidth" , 9);
                         break;
@@ -194,6 +196,7 @@ void Semanhasht::show_path (int src, int end, int type){
                     if(objects2[dd.first.start][i]->property("strokeStyle").toInt() == 1 &&
                         (objects2[dd.first.start][i]->property("e").toInt() == dd.first.end ||
                          objects2[dd.first.start][i]->property("s").toInt() == dd.first.end)){
+                        RP.set_edges(objects2[dd.first.start][i], objects2[dd.first.start][i]->property("color"),objects2[dd.first.start][i]->property("strokeWidth"));
                         objects2[dd.first.start][i]-> setProperty("color" , "purple");
                         objects2[dd.first.start][i]-> setProperty("strokeWidth" , 9);
                         break;
@@ -213,6 +216,7 @@ void Semanhasht::show_path (int src, int end, int type){
                 if(objects2[dd.first.start][i]->property("strokeStyle").toInt() == 2 &&
                     (objects2[dd.first.start][i]->property("e").toInt() == dd.first.end ||
                      objects2[dd.first.start][i]->property("s").toInt() == dd.first.end)){
+                    RP.set_edges(objects2[dd.first.start][i], objects2[dd.first.start][i]->property("color"),objects2[dd.first.start][i]->property("strokeWidth"));
                     objects2[dd.first.start][i]-> setProperty("color" , "purple");
                     objects2[dd.first.start][i]-> setProperty("strokeWidth" , 9);
                     break;
@@ -222,6 +226,7 @@ void Semanhasht::show_path (int src, int end, int type){
                 if(objects2[dd.first.start][i]->property("strokeStyle").toInt() == 1 &&
                     (objects2[dd.first.start][i]->property("e").toInt() == dd.first.end ||
                      objects2[dd.first.start][i]->property("s").toInt() == dd.first.end)){
+                    RP.set_edges(objects2[dd.first.start][i], objects2[dd.first.start][i]->property("color"),objects2[dd.first.start][i]->property("strokeWidth"));
                     objects2[dd.first.start][i]-> setProperty("color" , "purple");
                     objects2[dd.first.start][i]-> setProperty("strokeWidth" , 9);
                     break;
