@@ -456,7 +456,7 @@ Item {
                 directionBt.visible = false
                 pathSel.visible = true
                 mas.visible = true
-                masir.text = semanhasht.print_path()
+                timePathLb.text = semanhasht.print_path()
             }
         }
 

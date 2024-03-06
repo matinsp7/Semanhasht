@@ -87,7 +87,7 @@ void Semanhasht::direction (int src, int end){
     //distance_path = distance.dijkstra(src);
     //show_path(src, end, 1);
     cost_path = cost.dijkstra(distance_data, src);
-    time_path = best_time.dijkstra(distance_data, src);
+    time_path = best_time.dijkstra(distance_data, src, end);
     show_path (src, end, 3);
     // pair <path, int> dd = time_path[end][0];
     // while (dd.first.start != src) {
@@ -244,26 +244,25 @@ void Semanhasht::show_path (int src, int end, int type){
 
 QString Semanhasht::print_path(){
     string path;
-    QString qpath ;//= QString::fromStdString(path);
     int tpTemp = 0;
 
     while (!print_time_path.empty()){
         if (print_time_path.top().tp != tpTemp){
             //path += to_string(print_time_path.top().start);
             path = indexToStation[print_time_path.top().start+1] + " ";
-            qpath = qpath + QString::fromStdString(path);
+            q_time_path = q_time_path + QString::fromStdString(path);
             switch (print_time_path.top().tp/10) {
             case 1:
                 //path = path + " T" + to_string(print_time_path.top().tp%10) + " ";
-                qpath = qpath + QString::fromUtf8("\xF0\x9F\x9A\x8C") + " ";
+                q_time_path = q_time_path + QString::fromUtf8("\xF0\x9F\x9A\x8C") + " ";
                 break;
             case 2:
                 //path = path + " B" + to_string(print_time_path.top().tp%10) + " ";
-                qpath = qpath + QString::fromUtf8("\xF0\x9F\x9A\x95") + " ";
+                q_time_path = q_time_path + QString::fromUtf8("\xF0\x9F\x9A\x95") + " ";
                 break;
             case 3:
                 //path = path + " S" + to_string(print_time_path.top().tp%10) + " ";
-                qpath = qpath + QString::fromUtf8("\xF0\x9F\x9A\x85") + " ";
+                q_time_path = q_time_path + QString::fromUtf8("\xF0\x9F\x9A\x85") + " ";
                 break;
             }
             //path = path + to_string(st.top().start) + " with " + to_string(st.top().tp) << " to ";
@@ -272,10 +271,12 @@ QString Semanhasht::print_path(){
         if (print_time_path.size() == 1){
             //path = path + to_string(print_time_path.top().end);
             path = indexToStation[print_time_path.top().end+1] + " ";
-            qpath = qpath + QString::fromStdString(path);
+            q_time_path = q_time_path + QString::fromStdString(path);
         }
         print_time_path.pop();
     }
+    if (best_time.get_time_cost() != 0) path = "\n\ntime cost : " + to_string(best_time.get_time_cost());
+    q_time_path = q_time_path + QString::fromStdString(path);
 
-    return qpath;
+    return q_time_path;
 }

@@ -220,10 +220,12 @@ ApplicationWindow {
             anchors.top: minutTF.bottom
             anchors.topMargin: 10
             width: parent.width
-            height: 140
-            color: "#3F51B5"
+            height: 120
+            radius: 2
+            border.color: "black"
+            color: "#00BCD4"//"#3F51B5"
             Label {
-                id : masir
+                id : timePathLb
                 text: semanhasht.print_path()
                 color: "white"
                 font.bold: true

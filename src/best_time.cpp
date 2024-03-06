@@ -10,11 +10,9 @@ Best_time::Best_time() {
     taxi_time = 2;
 }
 
-vector <vector<pair<path, int>>> Best_time::dijkstra(vector<vector<path>>distance_data, int src){
+vector <vector<pair<path, int>>> Best_time::dijkstra(const vector<vector<path>>&distance_data, const int &src, const int &des){
     int V = 59;
-    vector <vector<pair<path, int>>> ans(V);
-
-    //int dist[V]; 
+    vector <vector<pair<path, int>>> ans(V); 
 
     map <pair <int , int> , bool> visited;
 
@@ -31,7 +29,7 @@ vector <vector<pair<path, int>>> Best_time::dijkstra(vector<vector<path>>distanc
             ans[z.top().second.first.end].push_back (make_pair((z.top().second.first) , z.top().second.second));
             visited [make_pair(z.top().second.first.end, z.top().second.first.tp)] = true;
             visited [make_pair(z.top().second.first.start, z.top().second.first.tp)] = true;
-            if (z.top().second.first.end == 18) cout << "time" << z.top().first << endl;
+            if (z.top().second.first.end == des && time_cost==0) time_cost = z.top().first;
         }
         //the number of edges of the desired vertex
         int edg_num = distance_data[z.top().second.first.end].size();
@@ -71,3 +69,5 @@ vector <vector<pair<path, int>>> Best_time::dijkstra(vector<vector<path>>distanc
     }
     return ans;
 }
+
+int Best_time::get_time_cost() {return time_cost;}

@@ -44,6 +44,7 @@ private:
 
     Best_time best_time;
     std::vector <std::vector<std::pair<path, int>>> time_path;
+    QString q_time_path; //prints the path
 
     std::stack<path> print_time_path;
 

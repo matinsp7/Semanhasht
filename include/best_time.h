@@ -8,7 +8,8 @@ class Best_time
 {
 public:
     Best_time();
-    std::vector <std::vector<std::pair<path, int>>> dijkstra(std::vector<std::vector<path>>, int);
+    std::vector <std::vector<std::pair<path, int>>> dijkstra(const std::vector<std::vector<path>>&, const int&, const int&);
+    int get_time_cost();
 private:
     int bus_time;
     int taxi_time;
@@ -17,6 +18,8 @@ private:
     int bus_dilay = 15;
     int taxi_dilay = 5;
     int subway_dilay = 8;
+
+    int time_cost=0;
 };
 
 #endif // BEST_TIME_H
