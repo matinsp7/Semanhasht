@@ -29,7 +29,6 @@ int TTime::add_time_h (const int &t){
 }
 int TTime::add_time_m (const int &t){
     int m = minute +  t % 60;
-    //if (m > 60){
-        m = m % 60;
-    //}
+    m = m % 60;
+    return m;
 }

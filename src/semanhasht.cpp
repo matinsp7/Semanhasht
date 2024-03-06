@@ -88,7 +88,7 @@ void Semanhasht::direction (int src, int end, const int &th, const int &tm){
     //distance_path = distance.dijkstra(src);
     //show_path(src, end, 1);
     TTime tt(th, tm);
-    cost_path = cost.dijkstra(distance_data, src);
+    cost_path = cost.dijkstra(distance_data, src, end);
     time_path = best_time.dijkstra(distance_data, src, end, tt);
     show_path (src, end, 3);
     print_path(src, end, tt);
@@ -191,7 +191,6 @@ void Semanhasht::show_path (int src, int end, int type){
                         (objects2[dd.first.start][i]->property("e").toInt() == dd.first.end ||
                          objects2[dd.first.start][i]->property("s").toInt() == dd.first.end)){
                         RP.set_edges(objects2[dd.first.start][i], objects2[dd.first.start][i]->property("color"),objects2[dd.first.start][i]->property("strokeWidth"));
-                        //print_time_path.push(dd.first);
                         objects2[dd.first.start][i]-> setProperty("color" , "purple");
                         objects2[dd.first.start][i]-> setProperty("strokeWidth" , 9);
                         break;
@@ -202,7 +201,6 @@ void Semanhasht::show_path (int src, int end, int type){
                         (objects2[dd.first.start][i]->property("e").toInt() == dd.first.end ||
                          objects2[dd.first.start][i]->property("s").toInt() == dd.first.end)){
                         RP.set_edges(objects2[dd.first.start][i], objects2[dd.first.start][i]->property("color"),objects2[dd.first.start][i]->property("strokeWidth"));
-                        // print_time_path.push(dd.first);
                         objects2[dd.first.start][i]-> setProperty("color" , "purple");
                         objects2[dd.first.start][i]-> setProperty("strokeWidth" , 9);
                         break;
@@ -223,7 +221,6 @@ void Semanhasht::show_path (int src, int end, int type){
                     (objects2[dd.first.start][i]->property("e").toInt() == dd.first.end ||
                      objects2[dd.first.start][i]->property("s").toInt() == dd.first.end)){
                     RP.set_edges(objects2[dd.first.start][i], objects2[dd.first.start][i]->property("color"),objects2[dd.first.start][i]->property("strokeWidth"));
-                    //print_time_path.push(dd.first);
                     objects2[dd.first.start][i]-> setProperty("color" , "purple");
                     objects2[dd.first.start][i]-> setProperty("strokeWidth" , 9);
                     break;
@@ -234,7 +231,6 @@ void Semanhasht::show_path (int src, int end, int type){
                     (objects2[dd.first.start][i]->property("e").toInt() == dd.first.end ||
                      objects2[dd.first.start][i]->property("s").toInt() == dd.first.end)){
                     RP.set_edges(objects2[dd.first.start][i], objects2[dd.first.start][i]->property("color"),objects2[dd.first.start][i]->property("strokeWidth"));
-                    //print_time_path.push(dd.first);
                     objects2[dd.first.start][i]-> setProperty("color" , "purple");
                     objects2[dd.first.start][i]-> setProperty("strokeWidth" , 9);
                     break;
@@ -248,7 +244,7 @@ void Semanhasht::print_path(const int &src, const int &end, TTime &tt){
 
     pair <path, int> dd = time_path[end][0];
     while (dd.first.start != src) {
-        print_time_path.push(dd.first);
+        print_pathS.push(dd.first);
         for (int i=0 ; i<time_path[dd.first.start].size() ; i++){
             if (time_path[dd.first.start][i].first.tp == dd.second){
                 dd = time_path[dd.first.start][i];
@@ -256,45 +252,110 @@ void Semanhasht::print_path(const int &src, const int &end, TTime &tt){
             }
         }
     }
-    print_time_path.push(dd.first);
+    print_pathS.push(dd.first);
 
     string path;
     int tpTemp = 0;
-    //ttime tt;
 
-    while (!print_time_path.empty()){
-        if (print_time_path.top().tp != tpTemp){
-            //path += to_string(print_time_path.top().start);
-            path = indexToStation[print_time_path.top().start+1] + " ";
+    while (!print_pathS.empty()){
+        if (print_pathS.top().tp != tpTemp){
+            path = indexToStation[print_pathS.top().start+1] + " ";
             q_time_path = q_time_path + QString::fromStdString(path);
-            switch (print_time_path.top().tp/10) {
+            switch (print_pathS.top().tp/10) {
             case 1:
-                //path = path + " T" + to_string(print_time_path.top().tp%10) + " ";
                 q_time_path = q_time_path + QString::fromUtf8("\xF0\x9F\x9A\x8C") + " ";
                 break;
             case 2:
-                //path = path + " B" + to_string(print_time_path.top().tp%10) + " ";
                 q_time_path = q_time_path + QString::fromUtf8("\xF0\x9F\x9A\x95") + " ";
                 break;
             case 3:
-                //path = path + " S" + to_string(print_time_path.top().tp%10) + " ";
                 q_time_path = q_time_path + QString::fromUtf8("\xF0\x9F\x9A\x85") + " ";
                 break;
             }
-            //path = path + to_string(st.top().start) + " with " + to_string(st.top().tp) << " to ";
-            tpTemp = print_time_path.top().tp;
+            tpTemp = print_pathS.top().tp;
         }
-        if (print_time_path.size() == 1){
-            //path = path + to_string(print_time_path.top().end);
-            path = indexToStation[print_time_path.top().end+1] + " ";
+        if (print_pathS.size() == 1){
+            path = indexToStation[print_pathS.top().end+1] + " ";
             q_time_path = q_time_path + QString::fromStdString(path);
         }
-        print_time_path.pop();
+        print_pathS.pop();
     }
     if (best_time.get_time_cost() != 0) path = "\n\ntime cost : " + to_string(best_time.get_time_cost());
     q_time_path = q_time_path + QString::fromStdString(path);
     path = "    arriving time :  " + to_string(tt.add_time_h(best_time.get_time_cost())) + " : " + to_string(tt.add_time_m(best_time.get_time_cost()));
     q_time_path = q_time_path + QString::fromStdString(path);
+    
+    int cost_ARtime = 0;
+    dd = cost_path[end][0];
+    while (dd.first.start != src) {
+        print_pathS.push(dd.first);
+        for (int i=0 ; i<cost_path[dd.first.start].size() ; i++){
+            if (cost_path[dd.first.start][i].first.tp == dd.second){
+                dd = cost_path[dd.first.start][i];
+                break;
+            }
+        }
+    }
+
+    print_pathS.push(dd.first);
+
+    tpTemp = 0;
+
+    while (!print_pathS.empty()){
+        int Traffic_time = tt.traffic_time(cost_ARtime);
+        if (print_pathS.top().tp != tpTemp){
+            path = indexToStation[print_pathS.top().start+1] + " ";
+            q_cost_path = q_cost_path + QString::fromStdString(path);
+            cout << print_pathS.top().tp/10 << endl;
+            switch (print_pathS.top().tp/10) {
+            case 1:
+                q_cost_path = q_cost_path + QString::fromUtf8("\xF0\x9F\x9A\x8C") + " ";
+                cost_ARtime += 15 + 15*(Traffic_time == 1);
+                break;
+            case 2:
+                q_cost_path = q_cost_path + QString::fromUtf8("\xF0\x9F\x9A\x95") + " ";
+                cost_ARtime += 5 + 5*(Traffic_time == 2);
+                break;
+            case 3:
+                q_cost_path = q_cost_path + QString::fromUtf8("\xF0\x9F\x9A\x85") + " ";
+                cost_ARtime += 8 + 16*(Traffic_time == 1);
+                break;
+            }
+            switch (print_pathS.top().tp/10){
+                case 1:
+                    cost_ARtime += print_pathS.top().length * 4;
+                    break;
+                case 2:
+                    cost_ARtime += print_pathS.top().length * 2;
+                    break;
+                case 3:
+                    cost_ARtime += print_pathS.top().length * 1;
+                    break;
+            }
+            if (Traffic_time==2 && print_pathS.top().tp/10 == 2){
+                cost_ARtime = cost_ARtime * 2;
+            }
+            else if (Traffic_time==1){
+                if (print_pathS.top().tp/10 == 1){
+                    cost_ARtime = cost_ARtime * 2;
+                }
+            }
+            tpTemp = print_pathS.top().tp;
+        }
+        if (print_pathS.size() == 1){
+            path = indexToStation[print_pathS.top().end+1] + " ";
+            q_cost_path = q_cost_path + QString::fromStdString(path);
+        }
+        print_pathS.pop();
+        cout << cost_ARtime << endl;
+    }
+    if (cost.get_total_cost() != 0) path = "\n\ncost : " + to_string(cost.get_total_cost());
+    q_cost_path = q_cost_path + QString::fromStdString(path);
+    path = "    arriving time :  " + to_string(tt.add_time_h(cost_ARtime)) + " : " + to_string(tt.add_time_m(cost_ARtime));
+    q_cost_path = q_cost_path + QString::fromStdString(path);
+
 }
 
 QString Semanhasht::get_q_time_path(){return q_time_path;}
+
+QString Semanhasht::get_q_cost_path(){return q_cost_path;}

@@ -26,10 +26,12 @@ struct comparePairs {
 class Distance
 {
 public:
-    Distance ();
+    // Distance ();
     std::vector <int> dijkstra(int);
+    std::vector <std::vector<std::pair<path, int>>> dijkstra(const std::vector<std::vector<path>>&, const int &, const int &);
 
 private:
+    int total_cost{0};
     //path matrix [59][59];    
 };
 

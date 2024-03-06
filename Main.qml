@@ -215,7 +215,7 @@ ApplicationWindow {
             }
         }
         Rectangle {
-            id: mas
+            id: timemas
             visible: false
             anchors.top: minutTF.bottom
             anchors.topMargin: 10
@@ -226,7 +226,27 @@ ApplicationWindow {
             color: "#00BCD4"//"#3F51B5"
             Label {
                 id : timePathLb
-                text: semanhasht.print_path()
+                text: ""
+                color: "white"
+                font.bold: true
+                font.pixelSize: 20
+                wrapMode: Text.WordWrap
+                anchors.fill: parent
+            }
+        }
+        Rectangle {
+            id: costmas
+            visible: false
+            anchors.top: timemas.bottom
+            //anchors.topMargin: 10
+            width: parent.width
+            height: 120
+            radius: 2
+            border.color: "black"
+            color: "#00BCD4"//"#3F51B5"
+            Label {
+                id : costPathLb
+                text: ""
                 color: "white"
                 font.bold: true
                 font.pixelSize: 20

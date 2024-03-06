@@ -24,11 +24,11 @@ public slots:
     int check_station_validation(const QString&);
     void print_path(const int&, const int&, TTime&);
     QString get_q_time_path();
+    QString get_q_cost_path();
 
 signals:
 
 private:
-    //static const int v = 59;
     std::vector <std::vector<QObject*>>objects  = std::vector <std::vector<QObject*>>(59,std::vector<QObject*>(59));
     std::vector <std::vector<QObject*>>objects2  = std::vector <std::vector<QObject*>>(59);
 
@@ -42,12 +42,13 @@ private:
 
     Cost cost;
     std::vector <std::vector<std::pair<path, int>>> cost_path;
+    QString q_cost_path; //prints the path
 
     Best_time best_time;
     std::vector <std::vector<std::pair<path, int>>> time_path;
     QString q_time_path; //prints the path
 
-    std::stack<path> print_time_path;
+    std::stack<path> print_pathS;
 
     ResetPath RP;
 

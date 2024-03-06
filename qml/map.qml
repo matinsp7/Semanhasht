@@ -462,8 +462,10 @@ Item {
                 semanhasht.direction(c1, c2, hour, min)
                 directionBt.visible = false
                 pathSel.visible = true
-                mas.visible = true
+                timemas.visible = true
+                costmas.visible = true
                 timePathLb.text = semanhasht.get_q_time_path()
+                costPathLb.text = semanhasht.get_q_cost_path()
             }
         }
 
