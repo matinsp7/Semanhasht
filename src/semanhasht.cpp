@@ -188,7 +188,7 @@ void Semanhasht::show_path (int src, int end, int type){
                         (objects2[dd.first.start][i]->property("e").toInt() == dd.first.end ||
                          objects2[dd.first.start][i]->property("s").toInt() == dd.first.end)){
                         RP.set_edges(objects2[dd.first.start][i], objects2[dd.first.start][i]->property("color"),objects2[dd.first.start][i]->property("strokeWidth"));
-                        print_time_path.push(dd.first);
+                        //print_time_path.push(dd.first);
                         objects2[dd.first.start][i]-> setProperty("color" , "purple");
                         objects2[dd.first.start][i]-> setProperty("strokeWidth" , 9);
                         break;
@@ -199,7 +199,7 @@ void Semanhasht::show_path (int src, int end, int type){
                         (objects2[dd.first.start][i]->property("e").toInt() == dd.first.end ||
                          objects2[dd.first.start][i]->property("s").toInt() == dd.first.end)){
                         RP.set_edges(objects2[dd.first.start][i], objects2[dd.first.start][i]->property("color"),objects2[dd.first.start][i]->property("strokeWidth"));
-                        print_time_path.push(dd.first);
+                        // print_time_path.push(dd.first);
                         objects2[dd.first.start][i]-> setProperty("color" , "purple");
                         objects2[dd.first.start][i]-> setProperty("strokeWidth" , 9);
                         break;
@@ -220,7 +220,7 @@ void Semanhasht::show_path (int src, int end, int type){
                     (objects2[dd.first.start][i]->property("e").toInt() == dd.first.end ||
                      objects2[dd.first.start][i]->property("s").toInt() == dd.first.end)){
                     RP.set_edges(objects2[dd.first.start][i], objects2[dd.first.start][i]->property("color"),objects2[dd.first.start][i]->property("strokeWidth"));
-                    print_time_path.push(dd.first);
+                    //print_time_path.push(dd.first);
                     objects2[dd.first.start][i]-> setProperty("color" , "purple");
                     objects2[dd.first.start][i]-> setProperty("strokeWidth" , 9);
                     break;
@@ -231,18 +231,33 @@ void Semanhasht::show_path (int src, int end, int type){
                     (objects2[dd.first.start][i]->property("e").toInt() == dd.first.end ||
                      objects2[dd.first.start][i]->property("s").toInt() == dd.first.end)){
                     RP.set_edges(objects2[dd.first.start][i], objects2[dd.first.start][i]->property("color"),objects2[dd.first.start][i]->property("strokeWidth"));
-                    print_time_path.push(dd.first);
+                    //print_time_path.push(dd.first);
                     objects2[dd.first.start][i]-> setProperty("color" , "purple");
                     objects2[dd.first.start][i]-> setProperty("strokeWidth" , 9);
                     break;
                 }
             }
         }
-        //print_path(st);
+        print_path(src, end);
     }
 }
 
-QString Semanhasht::print_path(){
+void Semanhasht::print_path(const int &src, const int &end){
+
+    pair <path, int> dd = time_path[end][0];
+    while (dd.first.start != src) {
+        //cout << dd.first.start << " " << dd.first.tp << endl;
+        print_time_path.push(dd.first);
+        for (int i=0 ; i<time_path[dd.first.start].size() ; i++){
+            if (time_path[dd.first.start][i].first.tp == dd.second){
+                dd = time_path[dd.first.start][i];
+                break;
+            }
+        }
+    }
+    //cout << dd.first.start << " " << dd.first.tp << endl;
+    print_time_path.push(dd.first);
+
     string path;
     int tpTemp = 0;
 
@@ -277,6 +292,6 @@ QString Semanhasht::print_path(){
     }
     if (best_time.get_time_cost() != 0) path = "\n\ntime cost : " + to_string(best_time.get_time_cost());
     q_time_path = q_time_path + QString::fromStdString(path);
-
-    return q_time_path;
 }
+
+QString Semanhasht::get_q_time_path(){return q_time_path;}

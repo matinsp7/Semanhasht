@@ -463,7 +463,7 @@ Item {
                 directionBt.visible = false
                 pathSel.visible = true
                 mas.visible = true
-                timePathLb.text = semanhasht.print_path()
+                timePathLb.text = semanhasht.get_q_time_path()
             }
         }
 
