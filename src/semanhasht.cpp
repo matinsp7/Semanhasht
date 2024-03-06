@@ -82,12 +82,12 @@ int Semanhasht::check_station_validation(const QString& station){
     return stationToIndex[Sstation] ? (stationToIndex[Sstation]-1) : -1;
 }
 
-void Semanhasht::direction (int src, int end){
+void Semanhasht::direction (int src, int end, const int &th, const int &tm){
     //First calculate the shortest distance
     //distance_path = distance.dijkstra(src);
     //show_path(src, end, 1);
     cost_path = cost.dijkstra(distance_data, src);
-    time_path = best_time.dijkstra(distance_data, src, end);
+    time_path = best_time.dijkstra(distance_data, src, end, th, tm);
     show_path (src, end, 3);
     // pair <path, int> dd = time_path[end][0];
     // while (dd.first.start != src) {

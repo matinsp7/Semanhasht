@@ -18,7 +18,7 @@ public:
 
 public slots: 
     void set_objects(QObject*, int, int);
-    void direction(int, int);
+    void direction(int, int, const int&, const int&);
     void show_path (int, int, int);
     void set_map(const QString&, const int&);
     int check_station_validation(const QString&);

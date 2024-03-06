@@ -2,6 +2,7 @@
 #include <vector>
 #include <map>
 #include <queue>
+#include "ttime.h"
 using namespace std;
 
 Best_time::Best_time() {
@@ -10,8 +11,9 @@ Best_time::Best_time() {
     taxi_time = 2;
 }
 
-vector <vector<pair<path, int>>> Best_time::dijkstra(const vector<vector<path>>&distance_data, const int &src, const int &des){
+vector <vector<pair<path, int>>> Best_time::dijkstra(const vector<vector<path>>&distance_data, const int &src, const int &des, const int &th, const int &tm){
     int V = 59;
+    TTime tt(th, tm);
     vector <vector<pair<path, int>>> ans(V); 
 
     map <pair <int , int> , bool> visited;
@@ -46,16 +48,29 @@ vector <vector<pair<path, int>>> Best_time::dijkstra(const vector<vector<path>>&
                     cost_time = distance_data[z.top().second.first.end][i].length * subway_time;
                     break;
             }
+            int traffic_time = tt.traffic_time(z.top().first);
+            if (traffic_time==2 && distance_data[z.top().second.first.end][i].tp/10 == 2){
+                cost_time = cost_time * 2;
+            }
+            else if (traffic_time==1){
+                if (distance_data[z.top().second.first.end][i].tp/10 == 1){
+                    cost_time = cost_time * 2;
+                }
+            }
             if (distance_data[z.top().second.first.end][i].tp != z.top().second.first.tp){
                 switch (distance_data[z.top().second.first.end][i].tp/10){
                     case 1:
-                        cost_time += bus_dilay;
+                        //cost_time += bus_dilay;
+                        cost_time += bus_dilay + (bus_dilay * (traffic_time==1));
+
                         break;
                     case 2:
-                        cost_time += taxi_dilay;
+                        //cost_time += taxi_dilay;
+                        cost_time += taxi_dilay + (taxi_dilay * (traffic_time==2));
                         break;
                     case 3:
-                        cost_time += subway_dilay;
+                        //cost_time += subway_dilay;
+                        cost_time += (subway_dilay + (2 * subway_dilay * (traffic_time == 1)));
                         break;
                 }
             }
@@ -64,7 +79,6 @@ vector <vector<pair<path, int>>> Best_time::dijkstra(const vector<vector<path>>&
                 z.push(make_pair(cost_time, make_pair(distance_data[z.top().second.first.end][i] , z.top().second.first.tp)));
             }
         }
-        
         z.pop();
     }
     return ans;

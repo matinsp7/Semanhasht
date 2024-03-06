@@ -210,7 +210,7 @@ ApplicationWindow {
                 text: "minute  :"
                 font.bold: true
                 anchors.right: minutTF.left
-                anchors.rightMargin: 7
+                anchors.rightMargin: 5
                 anchors.verticalCenter: parent.verticalCenter
             }
         }

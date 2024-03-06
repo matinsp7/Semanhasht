@@ -8,6 +8,8 @@ import QtQuick.Layouts
 Item {
 
     property int v: 59
+    property int hour: -1
+    property int min: -1
 
     ListModel {
         id: vertexName
@@ -452,7 +454,12 @@ Item {
             height: 70
             visible: (c1 != -1) && (c2 != -1) ? true : false
             onClicked: {
-                semanhasht.direction(c1, c2)
+                if(anotherTime.checked){
+                    hour = hourTF.text
+                    min = minutTF.text
+                }
+
+                semanhasht.direction(c1, c2, hour, min)
                 directionBt.visible = false
                 pathSel.visible = true
                 mas.visible = true
