@@ -464,8 +464,10 @@ Item {
                 pathSel.visible = true
                 timemas.visible = true
                 costmas.visible = true
+                distmas.visible = true
                 timePathLb.text = semanhasht.get_q_time_path()
                 costPathLb.text = semanhasht.get_q_cost_path()
+                distPathLb.text = semanhasht.get_q_distance_path()
             }
         }
 
@@ -523,6 +525,7 @@ Item {
                     verticalAlignment: Text.AlignVCenter
                     font.bold: true
                 }
+                onClicked: semanhasht.show_path(c1, c2, 1)
             }
         }
 

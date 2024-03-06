@@ -25,12 +25,12 @@ public slots:
     void print_path(const int&, const int&, TTime&);
     QString get_q_time_path();
     QString get_q_cost_path();
+    QString get_q_distance_path();
 
 signals:
 
 private:
-    std::vector <std::vector<QObject*>>objects  = std::vector <std::vector<QObject*>>(59,std::vector<QObject*>(59));
-    std::vector <std::vector<QObject*>>objects2  = std::vector <std::vector<QObject*>>(59);
+    std::vector <std::vector<QObject*>>objects  = std::vector <std::vector<QObject*>>(59);
 
     std::unordered_map <std::string, int> stationToIndex;
     std::unordered_map <int, std::string> indexToStation;
@@ -38,7 +38,8 @@ private:
     std::vector<std::vector<path>> distance_data;
 
     Distance distance;
-    std::vector <int> distance_path;
+    std::vector <path> distance_path;
+    QString q_distance_path; //prints the path
 
     Cost cost;
     std::vector <std::vector<std::pair<path, int>>> cost_path;
