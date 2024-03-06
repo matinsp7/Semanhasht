@@ -72,6 +72,7 @@ void Semanhasht::set_map(const QString &station, const int &index){
 
     toLower(Sstation);
     stationToIndex[Sstation] = index+1;
+    indexToStation[index+1] = Sstation;
 }
 
 //هf the station is available, it returns its index, otherwise -1
@@ -242,7 +243,6 @@ void Semanhasht::show_path (int src, int end, int type){
 }
 
 QString Semanhasht::print_path(){
-    cout << "hi " << endl;
     string path;
     QString qpath ;//= QString::fromStdString(path);
     int tpTemp = 0;
@@ -250,7 +250,7 @@ QString Semanhasht::print_path(){
     while (!print_time_path.empty()){
         if (print_time_path.top().tp != tpTemp){
             //path += to_string(print_time_path.top().start);
-            path = to_string(print_time_path.top().start) + " ";
+            path = indexToStation[print_time_path.top().start+1] + " ";
             qpath = qpath + QString::fromStdString(path);
             switch (print_time_path.top().tp/10) {
             case 1:
@@ -271,13 +271,11 @@ QString Semanhasht::print_path(){
         }
         if (print_time_path.size() == 1){
             //path = path + to_string(print_time_path.top().end);
-            path = to_string(print_time_path.top().end);
+            path = indexToStation[print_time_path.top().end+1] + " ";
             qpath = qpath + QString::fromStdString(path);
         }
         print_time_path.pop();
     }
 
-    //QString smile = QString::fromUtf8("\xF0\x9F\x98\x83");
-    //QString nn = qpath + smile;
     return qpath;
 }
