@@ -19,3 +19,17 @@ int TTime::traffic_time (const int &t){
     if ((18 <= h && h < 20) || (h==20 && m==0)) return 2;
     return 0;
 }
+
+int TTime::add_time_h (const int &t){
+    int h = hour + (minute + t)/60;
+    if (h > 24){
+        h = h % 24;
+    }
+    return h;
+}
+int TTime::add_time_m (const int &t){
+    int m = minute +  t % 60;
+    //if (m > 60){
+        m = m % 60;
+    //}
+}

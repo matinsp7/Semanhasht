@@ -22,7 +22,7 @@ public slots:
     void show_path (int, int, int);
     void set_map(const QString&, const int&);
     int check_station_validation(const QString&);
-    void print_path(const int&, const int&);
+    void print_path(const int&, const int&, TTime&);
     QString get_q_time_path();
 
 signals:

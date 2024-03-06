@@ -6,6 +6,8 @@ class TTime
 public:
     TTime(const int&, const int&);
     int traffic_time (const int&);
+    int add_time_h (const int&);
+    int add_time_m (const int&);
 
 private:
     int hour;

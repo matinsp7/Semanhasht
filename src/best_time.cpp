@@ -2,7 +2,7 @@
 #include <vector>
 #include <map>
 #include <queue>
-#include "ttime.h"
+//#include "ttime.h"
 using namespace std;
 
 Best_time::Best_time() {
@@ -11,9 +11,8 @@ Best_time::Best_time() {
     taxi_time = 2;
 }
 
-vector <vector<pair<path, int>>> Best_time::dijkstra(const vector<vector<path>>&distance_data, const int &src, const int &des, const int &th, const int &tm){
+vector <vector<pair<path, int>>> Best_time::dijkstra(const vector<vector<path>>&distance_data, const int &src, const int &des, TTime &tt){
     int V = 59;
-    TTime tt(th, tm);
     vector <vector<pair<path, int>>> ans(V); 
 
     map <pair <int , int> , bool> visited;

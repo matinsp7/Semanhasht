@@ -4,6 +4,7 @@
 #include <sstream>
 #include <iostream>
 #include <QString>
+#include "ttime.h"
 
 using namespace std;
 
@@ -86,9 +87,11 @@ void Semanhasht::direction (int src, int end, const int &th, const int &tm){
     //First calculate the shortest distance
     //distance_path = distance.dijkstra(src);
     //show_path(src, end, 1);
+    TTime tt(th, tm);
     cost_path = cost.dijkstra(distance_data, src);
-    time_path = best_time.dijkstra(distance_data, src, end, th, tm);
+    time_path = best_time.dijkstra(distance_data, src, end, tt);
     show_path (src, end, 3);
+    print_path(src, end, tt);
     // pair <path, int> dd = time_path[end][0];
     // while (dd.first.start != src) {
     //     cout << dd.first.start << " " << dd.first.tp << endl;
@@ -238,15 +241,13 @@ void Semanhasht::show_path (int src, int end, int type){
                 }
             }
         }
-        print_path(src, end);
     }
 }
 
-void Semanhasht::print_path(const int &src, const int &end){
+void Semanhasht::print_path(const int &src, const int &end, TTime &tt){
 
     pair <path, int> dd = time_path[end][0];
     while (dd.first.start != src) {
-        //cout << dd.first.start << " " << dd.first.tp << endl;
         print_time_path.push(dd.first);
         for (int i=0 ; i<time_path[dd.first.start].size() ; i++){
             if (time_path[dd.first.start][i].first.tp == dd.second){
@@ -255,11 +256,11 @@ void Semanhasht::print_path(const int &src, const int &end){
             }
         }
     }
-    //cout << dd.first.start << " " << dd.first.tp << endl;
     print_time_path.push(dd.first);
 
     string path;
     int tpTemp = 0;
+    //ttime tt;
 
     while (!print_time_path.empty()){
         if (print_time_path.top().tp != tpTemp){
@@ -291,6 +292,8 @@ void Semanhasht::print_path(const int &src, const int &end){
         print_time_path.pop();
     }
     if (best_time.get_time_cost() != 0) path = "\n\ntime cost : " + to_string(best_time.get_time_cost());
+    q_time_path = q_time_path + QString::fromStdString(path);
+    path = "    arriving time :  " + to_string(tt.add_time_h(best_time.get_time_cost())) + " : " + to_string(tt.add_time_m(best_time.get_time_cost()));
     q_time_path = q_time_path + QString::fromStdString(path);
 }
 
