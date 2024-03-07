@@ -82,7 +82,7 @@ void Semanhasht::direction (int src, int end, const int &th, const int &tm){
     show_path (src, end, 3);
     print_path(src, end, tt);
 }
-   
+
 void Semanhasht::show_path (int src, int end, int type){
     
     int tst = end;
@@ -96,8 +96,8 @@ void Semanhasht::show_path (int src, int end, int type){
                 if (dd.tp/10 == 1){
                     if(objects[dd.start][i]->property("strokeStyle").toInt() == 2 &&
                         (objects[dd.start][i]->property("e").toInt() == dd.end ||
-                        objects[dd.start][i]->property("s").toInt() == dd.end)){
-                        RP.set_edges(objects[dd.start][0], objects[dd.start][0]->property("color"),objects[dd.start][0]->property("strokeWidth"));
+                         objects[dd.start][i]->property("s").toInt() == dd.end)){
+                        RP.set_edges(objects[dd.start][i], objects[dd.start][i]->property("color"),objects[dd.start][i]->property("strokeWidth"));
                         objects[dd.start][i]-> setProperty("color" , "purple");
                         objects[dd.start][i]-> setProperty("strokeWidth" , 9);
                         break;
@@ -106,7 +106,7 @@ void Semanhasht::show_path (int src, int end, int type){
                 else if (dd.tp/10 != 1){
                     if(objects[dd.start][i]->property("strokeStyle").toInt() == 1 &&
                         (objects[dd.start][i]->property("e").toInt() == dd.end ||
-                        objects[dd.start][i]->property("s").toInt() == dd.end)){
+                         objects[dd.start][i]->property("s").toInt() == dd.end)){
                         RP.set_edges(objects[dd.start][i], objects[dd.start][i]->property("color"),objects[dd.start][i]->property("strokeWidth"));
                         objects[dd.start][i]-> setProperty("color" , "purple");
                         objects[dd.start][i]-> setProperty("strokeWidth" , 9);
@@ -340,27 +340,27 @@ void Semanhasht::print_path(const int &src, const int &end, TTime &tt){
                 cost_ARtime += 8 + 16*(Traffic_time == 1);
                 break;
             }
-            switch (print_pathS.top().tp/10){
-            case 1:
-                cost_ARtime += print_pathS.top().length * 4;
-                break;
-            case 2:
-                cost_ARtime += print_pathS.top().length * 2;
-                break;
-            case 3:
-                cost_ARtime += print_pathS.top().length * 1;
-                break;
-            }
-            if (Traffic_time==2 && print_pathS.top().tp/10 == 2){
-                cost_ARtime = cost_ARtime * 2;
-            }
-            else if (Traffic_time==1){
-                if (print_pathS.top().tp/10 == 1){
-                    cost_ARtime = cost_ARtime * 2;
-                }
-            }
-            tpTemp = print_pathS.top().tp;
         }
+        switch (print_pathS.top().tp/10){
+        case 1:
+            cost_ARtime += print_pathS.top().length * 4;
+            break;
+        case 2:
+            cost_ARtime += print_pathS.top().length * 2;
+            break;
+        case 3:
+            cost_ARtime += print_pathS.top().length * 1;
+            break;
+        }
+        if (Traffic_time==2 && print_pathS.top().tp/10 == 2){
+            cost_ARtime += cost_ARtime * 2;
+        }
+        else if (Traffic_time==1){
+            if (print_pathS.top().tp/10 == 1){
+                cost_ARtime += cost_ARtime * 2;
+            }
+        }
+        tpTemp = print_pathS.top().tp;
         if (print_pathS.size() == 1){
             spath = indexToStation[print_pathS.top().end+1] + " ";
             q_cost_path = q_cost_path + QString::fromStdString(spath);
@@ -383,8 +383,6 @@ void Semanhasht::print_path(const int &src, const int &end, TTime &tt){
     print_pathS.push(ss);
 
     tpTemp = 0;
-
-    cout << print_pathS.size() << endl;
 
     while (!print_pathS.empty()){
         if (print_pathS.top().tp != tpTemp){
@@ -423,7 +421,7 @@ void Semanhasht::print_path(const int &src, const int &end, TTime &tt){
         }
         print_pathS.pop();
     }
-    if (distance.get_total_distance() != 0) spath = "\n\ndistance : " + to_string(distance.get_total_distance());
+    if (distance.get_total_distance() != 0) spath = "\ndistance : " + to_string(distance.get_total_distance());
     q_distance_path = q_distance_path + QString::fromStdString(spath);
     spath = "    arriving time :  " + to_string(tt.add_time_h(distance_ARtime)) + " : " + to_string(tt.add_time_m(distance_ARtime));
     q_distance_path = q_distance_path + QString::fromStdString(spath);

@@ -190,6 +190,7 @@ ApplicationWindow {
             anchors.leftMargin: 50
             anchors.top: currently.bottom
             anchors.topMargin: 15
+            validator: RegularExpressionValidator {regularExpression:/^[0-9]{1,2}$/}
             Label{
                 text: "hour  :"
                 font.bold: true
@@ -206,6 +207,7 @@ ApplicationWindow {
             anchors.left: hourTF.right
             anchors.leftMargin: 70
             anchors.verticalCenter: hourTF.verticalCenter
+            validator: RegularExpressionValidator {regularExpression:/^[0-9]{1,2}$/}
             Label{
                 text: "minute  :"
                 font.bold: true
@@ -285,21 +287,6 @@ ApplicationWindow {
             onClicked: drawer.open()
         }
 
-        // RowLayout {
-        //     spacing: 690
-        //     anchors.centerIn: parent
-        //     ToolButton {
-        //         action:navigateBackAction
-        //     }
-        //     Image {
-        //         source: "../icons/logo2.png"
-        //     }
-
-        //     ToolButton {
-        //         icon.source: "../icons/search.png"
-        //         onClicked: searchdialog.open()
-        //     }
-        // }
     }
 
 

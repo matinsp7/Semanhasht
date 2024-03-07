@@ -26,7 +26,6 @@ struct comparePairs {
 class Distance
 {
 public:
-    std::vector <int> dijkstra(int);
     std::vector<path> dijkstra(const std::vector<std::vector<path>>&, const int &, const int &);
     int get_total_distance();
 

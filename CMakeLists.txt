@@ -34,16 +34,20 @@ qt_add_qml_module(appSemanhasht
     include/best_time.h
     src/best_time.cpp
 
+    include/resetpath.h
+    src/resetpath.cpp
+
+    include/ttime.h
+    src/ttime.cpp
+
     QML_FILES qml/map.qml
 
     RESOURCES
     img/PublicTransportation.jpeg
     img/loading.gif
     img/openDrawer.png
-    img/destination.png
-    SOURCES include/resetpath.h include/resetpath.cpp
-    RESOURCES redource.qrc
-    SOURCES include/ttime.h include/ttime.cpp
+    img/destination.png 
+    redource.qrc
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
